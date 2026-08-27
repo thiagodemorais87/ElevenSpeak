@@ -1,0 +1,79 @@
+import { useState } from 'react'
+import { motion } from 'motion/react'
+import { avulsaPlans, semestralPlans, type PricingMode } from '@/data/plans'
+import { PlanCard } from '@/components/PlanCard'
+import { SectionHeading } from '@/components/SectionHeading'
+
+export function Plans() {
+  const [mode, setMode] = useState<PricingMode>('avulsa')
+  const plans = mode === 'avulsa' ? avulsaPlans : semestralPlans
+
+  return (
+    <section
+      id="plans"
+      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
+      aria-labelledby="plans-heading"
+    >
+      <div
+        className="pointer-events-none absolute -right-10 top-20 font-script text-[12rem] leading-none text-yellow/20"
+        aria-hidden
+      >
+        ~
+      </div>
+
+      <div className="relative mx-auto max-w-6xl">
+        <SectionHeading
+          index="PLANS"
+          title="Invest in your voice."
+          subtitle="Mensalidade avulsa ou pacote semestral com 10% off. Escolha o formato que cabe na sua jornada."
+        />
+        <h2 id="plans-heading" className="sr-only">
+          Plans
+        </h2>
+
+        <div
+          className="mt-10 inline-flex rounded-full border border-ivory/20 p-1"
+          role="tablist"
+          aria-label="Pricing mode"
+        >
+          {(
+            [
+              { id: 'avulsa', label: 'Mensalidade avulsa' },
+              { id: 'semestral', label: 'Semestral — 20h' },
+            ] as const
+          ).map((tab) => (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={mode === tab.id}
+              onClick={() => setMode(tab.id)}
+              className={`relative rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition ${
+                mode === tab.id ? 'text-obsidian' : 'text-ivory/60 hover:text-ivory'
+              }`}
+            >
+              {mode === tab.id && (
+                <motion.span
+                  layoutId="plan-tab"
+                  className="absolute inset-0 rounded-full bg-lime"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
+              <span className="relative z-10">{tab.label}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-3 md:items-stretch">
+          {plans.map((plan) => (
+            <PlanCard key={`${mode}-${plan.id}`} mode={mode} plan={plan} />
+          ))}
+        </div>
+
+        <p className="mt-8 text-center text-xs text-ivory/40">
+          Valores por aluno. Aulas 1:1 ou em grupo conforme a modalidade.
+        </p>
+      </div>
+    </section>
+  )
+}
