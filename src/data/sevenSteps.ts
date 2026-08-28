@@ -53,6 +53,6 @@ export const sevenSteps: SevenStep[] = [
     label: '07',
     title: 'Become',
     description:
-      'Your voice, fluent and yours. English that moves with you — not a costume you wear.',
+      'Your voice, fluent and yours — not a costume you wear.',
   },
 ]

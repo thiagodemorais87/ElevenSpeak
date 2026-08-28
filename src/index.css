@@ -33,6 +33,10 @@
     overflow-x: hidden;
   }
 
+  body.intro-active {
+    overflow: hidden;
+  }
+
   ::selection {
     background: var(--color-lime);
     color: var(--color-obsidian);
@@ -75,6 +79,288 @@
       linear-gradient(to bottom, rgb(16 16 16 / 0.06) 1px, transparent 1px);
     background-size: 80px 80px;
   }
+
+  .shimmer-skeleton {
+    background: linear-gradient(
+      90deg,
+      rgb(16 16 16 / 0.92) 0%,
+      rgb(216 255 62 / 0.06) 50%,
+      rgb(16 16 16 / 0.92) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s ease-in-out infinite;
+  }
+
+  .journey-glow {
+    box-shadow:
+      0 0 8px rgb(216 255 62 / 0.55),
+      0 0 16px rgb(216 255 62 / 0.25);
+  }
+
+  .seven-active-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  .tilt-card {
+    transform-style: preserve-3d;
+  }
+
+  .tilt-card-inner {
+    transform-style: preserve-3d;
+  }
+
+  .tilt-card-shine {
+    background: radial-gradient(
+      circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgb(216 255 62 / 0.1),
+      transparent 55%
+    );
+  }
+
+  .programs-mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .programs-mobile-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-carousel-mask {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+
+  .hero-carousel-track {
+    animation: hero-carousel linear infinite;
+  }
+
+  .hero-carousel-paused {
+    animation-play-state: paused;
+  }
+
+  .animate-glitch-after {
+    animation: glitch var(--after-duration, 1.8s) infinite linear alternate-reverse;
+  }
+
+  .animate-glitch-before {
+    animation: glitch var(--before-duration, 1.2s) infinite linear alternate-reverse;
+  }
+
+  .circular-gallery canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .plasma-wave canvas,
+  .strands-canvas canvas,
+  .intro-loader-orb canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .brand-lockup-outline {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px #f4f0e8;
+    paint-order: stroke fill;
+  }
+
+  @media (min-width: 640px) {
+    .brand-lockup-outline {
+      -webkit-text-stroke-width: 2px;
+    }
+  }
+
+  .brand-lockup-dot {
+    -webkit-text-stroke-color: #d8ff3e;
+  }
+
+  .about-nyc-mosaic {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .magic-bento-pillar {
+    border-color: rgba(16, 16, 16, 0.15);
+  }
+
+  .magic-bento-embedded.bento-section,
+  .magic-bento-embedded .bento-section {
+    width: 100%;
+    max-width: none;
+  }
+
+  .magic-bento-embedded .card-responsive--quad {
+    gap: 1rem;
+  }
+
+  .about-nyc-dual > div {
+    border-radius: 2px;
+  }
+
+  .section-deferred {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 40vh;
+  }
+
+  #home {
+    isolation: isolate;
+  }
+
+  .globe-scene canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .about-nyc-slide {
+    will-change: transform;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes hero-carousel {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(20% 0 50% 0);
+  }
+  5% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  10% {
+    clip-path: inset(15% 0 55% 0);
+  }
+  15% {
+    clip-path: inset(25% 0 35% 0);
+  }
+  20% {
+    clip-path: inset(30% 0 40% 0);
+  }
+  25% {
+    clip-path: inset(40% 0 20% 0);
+  }
+  30% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  35% {
+    clip-path: inset(15% 0 55% 0);
+  }
+  40% {
+    clip-path: inset(25% 0 35% 0);
+  }
+  45% {
+    clip-path: inset(30% 0 40% 0);
+  }
+  50% {
+    clip-path: inset(20% 0 50% 0);
+  }
+  55% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  60% {
+    clip-path: inset(15% 0 55% 0);
+  }
+  65% {
+    clip-path: inset(25% 0 35% 0);
+  }
+  70% {
+    clip-path: inset(30% 0 40% 0);
+  }
+  75% {
+    clip-path: inset(40% 0 20% 0);
+  }
+  80% {
+    clip-path: inset(20% 0 50% 0);
+  }
+  85% {
+    clip-path: inset(10% 0 60% 0);
+  }
+  90% {
+    clip-path: inset(15% 0 55% 0);
+  }
+  95% {
+    clip-path: inset(25% 0 35% 0);
+  }
+  100% {
+    clip-path: inset(30% 0 40% 0);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.75;
+  }
+}
+
+@keyframes voice-wave-bar {
+  0%,
+  100% {
+    transform: scaleY(0.72);
+  }
+  35% {
+    transform: scaleY(1);
+  }
+  65% {
+    transform: scaleY(0.88);
+  }
+}
+
+.voice-wave-bar {
+  transform-origin: bottom;
+  animation: voice-wave-bar 2.8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.voice-wave-active .voice-wave-bar {
+  animation-play-state: running;
+}
+
+@keyframes cta-dot-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+.cta-dot {
+  animation: cta-dot-bounce 2.4s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.cta-dots-active .cta-dot {
+  animation-play-state: running;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -84,5 +370,236 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* MagicBento — static styles (glow color via --bento-glow-rgb on .bento-section) */
+.bento-section {
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 200px;
+  --bento-glow-rgb: 132, 0, 255;
+  --border-color: #2f293a;
+  --background-dark: #120f17;
+  --white: hsl(0, 0%, 100%);
+  --purple-primary: rgba(132, 0, 255, 1);
+  --purple-glow: rgba(132, 0, 255, 0.2);
+  --purple-border: rgba(132, 0, 255, 0.8);
+}
+
+.card-responsive {
+  grid-template-columns: 1fr;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .card-responsive:not(.card-responsive--quad):not(.card-responsive--single):not(.card-responsive--three):not(.card-responsive--stack) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-responsive:not(.card-responsive--quad):not(.card-responsive--single):not(.card-responsive--three):not(.card-responsive--stack) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card-responsive:not(.card-responsive--quad):not(.card-responsive--single):not(.card-responsive--three):not(.card-responsive--stack) .card:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .card-responsive:not(.card-responsive--quad):not(.card-responsive--single):not(.card-responsive--three):not(.card-responsive--stack) .card:nth-child(4) {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 2;
+  }
+
+  .card-responsive:not(.card-responsive--quad):not(.card-responsive--single):not(.card-responsive--three):not(.card-responsive--stack) .card:nth-child(6) {
+    grid-column: 4;
+    grid-row: 3;
+  }
+}
+
+.card-responsive--three {
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .card-responsive--three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card-responsive--single {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: 1fr;
+}
+
+.card-responsive--single .card {
+  aspect-ratio: auto;
+  min-height: 220px;
+}
+
+.magic-bento-embedded .card-responsive--single {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.magic-bento-embedded .card-responsive--single .card {
+  aspect-ratio: auto;
+  min-height: 220px;
+  border-radius: 0;
+}
+
+.card-responsive--quad {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .card-responsive--quad {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card-responsive--quad .card {
+  aspect-ratio: auto;
+  min-height: 220px;
+  grid-column: auto;
+  grid-row: auto;
+}
+
+@media (min-width: 1024px) {
+  .card-responsive--quad {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.magic-bento-embedded .card-responsive--quad {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.magic-bento-embedded .card-responsive--quad .card {
+  aspect-ratio: auto;
+  min-height: 220px;
+  border-radius: 0;
+}
+
+.card-responsive--stack {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+}
+
+.card-responsive--stack .card {
+  aspect-ratio: auto;
+  min-height: auto;
+}
+
+.magic-bento-embedded .card-responsive--stack {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+.magic-bento-embedded .card-responsive--stack .card {
+  border-radius: 0;
+}
+
+.card--border-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 6px;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    rgba(var(--bento-glow-rgb), calc(var(--glow-intensity) * 0.8)) 0%,
+    rgba(var(--bento-glow-rgb), calc(var(--glow-intensity) * 0.4)) 30%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.card--border-glow:hover::after {
+  opacity: 1;
+}
+
+.card--border-glow:hover {
+  box-shadow:
+    0 4px 20px rgba(46, 24, 78, 0.4),
+    0 0 30px rgba(var(--bento-glow-rgb), 0.2);
+}
+
+.particle::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: rgba(var(--bento-glow-rgb), 0.2);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.particle-container:hover {
+  box-shadow:
+    0 4px 20px rgba(46, 24, 78, 0.2),
+    0 0 30px rgba(var(--bento-glow-rgb), 0.2);
+}
+
+.text-clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 599px) {
+  .card-responsive {
+    grid-template-columns: 1fr;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+
+  .card-responsive .card {
+    width: 100%;
+    min-height: 180px;
   }
 }

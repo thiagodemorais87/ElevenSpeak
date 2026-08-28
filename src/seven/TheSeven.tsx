@@ -9,8 +9,9 @@ import { easings } from '@/lib/animations'
 export function TheSeven() {
   const sectionRef = useRef<HTMLElement>(null)
   const pinRef = useRef<HTMLDivElement>(null)
+  const progressBarRef = useRef<HTMLDivElement>(null)
+  const activeRef = useRef(0)
   const [active, setActive] = useState(0)
-  const [progress, setProgress] = useState(0)
   const reduced = useReducedMotion()
   const isDesktop = useIsDesktop()
   const usePin = !reduced && isDesktop
@@ -27,12 +28,17 @@ export function TheSeven() {
         scrub: true,
         anticipatePin: 1,
         onUpdate: (self) => {
-          setProgress(self.progress)
+          if (progressBarRef.current) {
+            progressBarRef.current.style.width = `${Math.min(100, self.progress * 100)}%`
+          }
           const idx = Math.min(
             sevenSteps.length - 1,
             Math.floor(self.progress * sevenSteps.length),
           )
-          setActive(idx)
+          if (idx !== activeRef.current) {
+            activeRef.current = idx
+            setActive(idx)
+          }
         },
       })
     }, sectionRef)
@@ -40,26 +46,17 @@ export function TheSeven() {
     return () => ctx.revert()
   }, [usePin, isDesktop])
 
-  // Mobile without pin: native scroll — show all steps as list + keep active via light IO
-  useEffect(() => {
-    if (usePin || reduced) return
-    const node = sectionRef.current
-    if (!node) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) setProgress(0.15)
-      },
-      { threshold: 0.2 },
-    )
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [usePin, reduced])
+  const handleStepClick = (index: number) => {
+    activeRef.current = index
+    setActive(index)
+    if (progressBarRef.current) {
+      progressBarRef.current.style.width = `${((index + 1) / sevenSteps.length) * 100}%`
+    }
+  }
 
   const step = sevenSteps[active] ?? sevenSteps[0]
   const stepLabel = String(active + 1).padStart(2, '0')
-  const lineWidth = usePin
-    ? `${Math.min(100, progress * 100)}%`
-    : `${((active + 1) / sevenSteps.length) * 100}%`
+  const lineWidth = `${((active + 1) / sevenSteps.length) * 100}%`
 
   const bgAccent = active % 2 === 0 ? 'bg-lime/[0.04]' : 'bg-magenta/[0.05]'
 
@@ -114,8 +111,9 @@ export function TheSeven() {
 
           <div className="mt-10 h-[2px] w-full bg-ivory/10">
             <div
+              ref={progressBarRef}
               className="h-full bg-lime transition-[width] duration-150 ease-out"
-              style={{ width: lineWidth }}
+              style={usePin ? { width: '0%' } : { width: lineWidth }}
             />
           </div>
 
@@ -148,7 +146,7 @@ export function TheSeven() {
                   <li key={s.id}>
                     <button
                       type="button"
-                      onClick={() => setActive(i)}
+                      onClick={() => handleStepClick(i)}
                       className={`flex w-full items-center gap-4 border-l-2 px-4 py-2 text-left transition ${
                         i === active
                           ? 'border-lime text-ivory'
@@ -161,7 +159,7 @@ export function TheSeven() {
                       <span className="font-display text-sm font-semibold">{s.title}</span>
                       {i === active && (
                         <span
-                          className="ml-auto h-1.5 w-1.5 rounded-full bg-lime"
+                          className="seven-active-dot ml-auto h-1.5 w-1.5 rounded-full bg-lime"
                           aria-hidden
                         />
                       )}

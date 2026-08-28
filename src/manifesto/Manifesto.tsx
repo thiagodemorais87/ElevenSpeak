@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useIsDesktop } from '@/hooks/useIsDesktop'
+import { HandwrittenStroke } from '@/components/HandwrittenStroke'
 import { BlurText } from '@/components/bits/BlurText'
 
 export function Manifesto() {
@@ -110,6 +111,9 @@ export function Manifesto() {
         </p>
         <div className="mt-12 font-script text-3xl text-magenta md:text-4xl">
           <BlurText text="Listen more. Speak more. Believe in your process." delay={50} />
+        </div>
+        <div className="mt-8">
+          <HandwrittenStroke text="Your voice, your rules." className="text-obsidian/80" />
         </div>
       </div>
     </section>

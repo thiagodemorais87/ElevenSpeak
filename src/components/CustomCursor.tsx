@@ -1,32 +1,22 @@
-import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'motion/react'
+import { useEffect, useRef } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-
-function useFinePointer(): boolean {
-  const [fine, setFine] = useState(() =>
-    typeof window !== 'undefined'
-      ? window.matchMedia('(pointer: fine)').matches
-      : false,
-  )
-
-  useEffect(() => {
-    const mq = window.matchMedia('(pointer: fine)')
-    const update = () => setFine(mq.matches)
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-
-  return fine
-}
+import { usePreferences } from '@/context/PreferencesContext'
 
 export function CustomCursor() {
   const reduced = useReducedMotion()
-  const fine = useFinePointer()
-  const enabled = fine && !reduced
-  const [pos, setPos] = useState({ x: 0, y: 0 })
-  const [trail, setTrail] = useState({ x: 0, y: 0 })
-  const [label, setLabel] = useState('')
-  const [visible, setVisible] = useState(false)
+  const { finePointer } = usePreferences()
+  const enabled = finePointer && !reduced
+
+  const trailRef = useRef<HTMLDivElement>(null)
+  const dotRef = useRef<HTMLDivElement>(null)
+  const ringRef = useRef<HTMLDivElement>(null)
+  const labelRef = useRef<HTMLSpanElement>(null)
+
+  const posRef = useRef({ x: 0, y: 0 })
+  const trailPosRef = useRef({ x: 0, y: 0 })
+  const labelTextRef = useRef('')
+  const visibleRef = useRef(false)
+  const scaleRef = useRef(1)
 
   useEffect(() => {
     if (enabled) document.documentElement.classList.add('cursor-none')
@@ -37,9 +27,46 @@ export function CustomCursor() {
   useEffect(() => {
     if (!enabled) return
 
+    const applyTransform = () => {
+      const { x, y } = posRef.current
+      const trail = trailPosRef.current
+      const scale = scaleRef.current
+      const visible = visibleRef.current
+      const opacity = visible ? 1 : 0
+      const trailOpacity = visible ? 0.7 : 0
+
+      if (trailRef.current) {
+        trailRef.current.style.transform = `translate3d(${trail.x}px, ${trail.y}px, 0) scale(${scale})`
+        trailRef.current.style.opacity = String(trailOpacity)
+      }
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`
+        dotRef.current.style.opacity = String(opacity)
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`
+        ringRef.current.style.opacity = String(opacity)
+      }
+      if (labelRef.current) {
+        labelRef.current.style.transform = `translate3d(${x}px, ${y - 38}px, 0) scale(${labelTextRef.current ? 1 : 0.85})`
+        labelRef.current.style.opacity = visible && labelTextRef.current ? '1' : '0'
+      }
+    }
+
+    const setLabel = (next: string) => {
+      if (labelTextRef.current === next) return
+      labelTextRef.current = next
+      scaleRef.current = next ? 1.5 : 1
+      if (labelRef.current) {
+        labelRef.current.textContent = next
+        labelRef.current.style.display = next ? 'block' : 'none'
+      }
+    }
+
     const onMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY })
-      setVisible(true)
+      posRef.current = { x: e.clientX, y: e.clientY }
+      visibleRef.current = true
+
       const target = (e.target as HTMLElement | null)?.closest('[data-cursor]')
       const kind = target?.getAttribute('data-cursor')
       if (kind === 'talk') setLabel("LET'S TALK")
@@ -48,30 +75,31 @@ export function CustomCursor() {
       else setLabel('')
     }
 
-    const onLeave = () => setVisible(false)
+    const onLeave = () => {
+      visibleRef.current = false
+      applyTransform()
+    }
 
-    window.addEventListener('mousemove', onMove)
+    let raf = 0
+    const tick = () => {
+      trailPosRef.current = {
+        x: trailPosRef.current.x + (posRef.current.x - trailPosRef.current.x) * 0.12,
+        y: trailPosRef.current.y + (posRef.current.y - trailPosRef.current.y) * 0.12,
+      }
+      applyTransform()
+      raf = requestAnimationFrame(tick)
+    }
+
+    window.addEventListener('mousemove', onMove, { passive: true })
     document.addEventListener('mouseleave', onLeave)
+    raf = requestAnimationFrame(tick)
+
     return () => {
       window.removeEventListener('mousemove', onMove)
       document.removeEventListener('mouseleave', onLeave)
+      cancelAnimationFrame(raf)
     }
   }, [enabled])
-
-  // Soft trail follow
-  useEffect(() => {
-    if (!enabled) return
-    let raf = 0
-    const tick = () => {
-      setTrail((t) => ({
-        x: t.x + (pos.x - t.x) * 0.12,
-        y: t.y + (pos.y - t.y) * 0.12,
-      }))
-      raf = requestAnimationFrame(tick)
-    }
-    raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
-  }, [enabled, pos.x, pos.y])
 
   if (!enabled) return null
 
@@ -80,51 +108,26 @@ export function CustomCursor() {
       className="pointer-events-none fixed inset-0 z-[100] hidden md:block"
       aria-hidden
     >
-      <motion.div
-        className={`absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-lime/25 ${
-          visible ? 'will-change-transform' : ''
-        }`}
-        animate={{
-          x: trail.x,
-          y: trail.y,
-          scale: label ? 1.5 : 1,
-          opacity: visible ? 0.7 : 0,
-        }}
-        transition={{ type: 'spring', stiffness: 120, damping: 22, mass: 0.5 }}
+      <div
+        ref={trailRef}
+        className="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-lime/25 will-change-transform"
+        style={{ opacity: 0 }}
       />
-      <motion.div
-        className={`absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime ${
-          visible ? 'will-change-transform' : ''
-        }`}
-        animate={{ x: pos.x, y: pos.y, opacity: visible ? 1 : 0 }}
-        transition={{ type: 'spring', stiffness: 500, damping: 40, mass: 0.2 }}
+      <div
+        ref={dotRef}
+        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime will-change-transform"
+        style={{ opacity: 0 }}
       />
-      <motion.div
-        className={`absolute flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-lime/50 ${
-          visible ? 'will-change-transform' : ''
-        }`}
-        animate={{
-          x: pos.x,
-          y: pos.y,
-          scale: label ? 1.55 : 1,
-          opacity: visible ? 1 : 0,
-        }}
-        transition={{ type: 'spring', stiffness: 200, damping: 28, mass: 0.4 }}
+      <div
+        ref={ringRef}
+        className="absolute flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-lime/50 will-change-transform"
+        style={{ opacity: 0 }}
       />
-      <AnimatePresence>
-        {label && (
-          <motion.span
-            key={label}
-            className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-lime px-3 py-1 font-display text-[10px] font-semibold tracking-wider text-obsidian"
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1, x: pos.x, y: pos.y - 38 }}
-            exit={{ opacity: 0, scale: 0.85 }}
-            transition={{ type: 'spring', stiffness: 320, damping: 24 }}
-          >
-            {label}
-          </motion.span>
-        )}
-      </AnimatePresence>
+      <span
+        ref={labelRef}
+        className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-lime px-3 py-1 font-display text-[10px] font-semibold tracking-wider text-obsidian will-change-transform"
+        style={{ display: 'none', opacity: 0 }}
+      />
     </div>
   )
 }

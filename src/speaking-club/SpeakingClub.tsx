@@ -1,8 +1,45 @@
+import { lazy, Suspense } from 'react'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { VoiceWave } from '@/components/VoiceWave'
+import { LottieAccent } from '@/components/LottieAccent'
 import { Users, MessageCircle, Sparkles } from 'lucide-react'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { useIsMobile } from '@/hooks/useIsMobile'
+import type { BentoCardProps } from '@/components/bits/MagicBento'
+
+const MagicBento = lazy(() =>
+  import('@/components/bits/MagicBento').then((m) => ({ default: m.MagicBento })),
+)
+
+const clubCards = [
+  {
+    icon: MessageCircle,
+    t: 'What it is',
+    d: 'Live conversation sessions focused on fluency, connection and real topics.',
+  },
+  {
+    icon: Users,
+    t: 'Who it’s for',
+    d: 'Learners who want more speaking reps and a sense of belonging beyond 1:1 lessons.',
+  },
+  {
+    icon: Sparkles,
+    t: 'How it works',
+    d: '[EDITÁVEL] Frequência, duração e formato do clube — atualizar quando confirmado.',
+  },
+] as const
+
+const bentoItems: BentoCardProps[] = clubCards.map((item) => ({
+  label: item.t,
+  title: item.t,
+  description: item.d,
+}))
 
 export function SpeakingClub() {
+  const reduced = useReducedMotion()
+  const isMobile = useIsMobile()
+  const disableFx = reduced || isMobile
+
   return (
     <section
       id="speaking-club"
@@ -22,7 +59,11 @@ export function SpeakingClub() {
             <br />
             Belong more.
           </h2>
-          <div className="mt-5">
+          <div className="mt-5 flex items-center gap-4">
+            <LottieAccent
+              src="/lottie/community-accent.json"
+              className="h-12 w-12 shrink-0"
+            />
             <VoiceWave />
           </div>
           <p className="mt-6 max-w-md text-ivory/65">
@@ -38,36 +79,55 @@ export function SpeakingClub() {
           </div>
         </div>
 
-        <div className="space-y-4">
-          {[
-            {
-              icon: MessageCircle,
-              t: 'What it is',
-              d: 'Live conversation sessions focused on fluency, connection and real topics.',
-            },
-            {
-              icon: Users,
-              t: 'Who it’s for',
-              d: 'Learners who want more speaking reps and a sense of belonging beyond 1:1 lessons.',
-            },
-            {
-              icon: Sparkles,
-              t: 'How it works',
-              d: '[EDITÁVEL] Frequência, duração e formato do clube — atualizar quando confirmado.',
-            },
-          ].map((item) => (
-            <div
-              key={item.t}
-              className="flex gap-4 border border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-lime/35"
-            >
-              <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
-              <div>
-                <h3 className="font-display text-lg font-semibold">{item.t}</h3>
-                <p className="mt-1 text-sm text-ivory/60">{item.d}</p>
-              </div>
+        <Suspense
+          fallback={
+            <div className="space-y-4">
+              {clubCards.map((item) => (
+                <div
+                  key={item.t}
+                  className="flex gap-4 border border-ivory/15 bg-ivory/[0.03] p-5"
+                >
+                  <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
+                  <div>
+                    <h3 className="font-display text-lg font-semibold">{item.t}</h3>
+                    <p className="mt-1 text-sm text-ivory/60">{item.d}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          }
+        >
+          <MagicBento
+            embedded
+            gridVariant="stack"
+            items={bentoItems}
+            enableStars={!disableFx}
+            enableSpotlight={!disableFx}
+            enableBorderGlow={!disableFx}
+            enableTilt={false}
+            enableMagnetism={false}
+            clickEffect={!disableFx}
+            disableAnimations={disableFx}
+            spotlightRadius={320}
+            glowColor="216, 255, 62"
+            getCardClassName={() =>
+              'flex gap-4 border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-lime/35'
+            }
+            renderCardContent={(_, index) => {
+              const item = clubCards[index]!
+              const Icon = item.icon
+              return (
+                <>
+                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
+                  <div>
+                    <h3 className="font-display text-lg font-semibold">{item.t}</h3>
+                    <p className="mt-1 text-sm text-ivory/60">{item.d}</p>
+                  </div>
+                </>
+              )
+            }}
+          />
+        </Suspense>
       </div>
     </section>
   )

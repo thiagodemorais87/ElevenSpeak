@@ -3,11 +3,15 @@ import Lenis from 'lenis'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 import { useReducedMotion } from './useReducedMotion'
 
-export function useSmoothScroll() {
+interface UseSmoothScrollOptions {
+  enabled?: boolean
+}
+
+export function useSmoothScroll({ enabled = true }: UseSmoothScrollOptions = {}) {
   const reduced = useReducedMotion()
 
   useEffect(() => {
-    if (reduced) return
+    if (reduced || !enabled) return
 
     const lenis = new Lenis({
       duration: 1.1,
@@ -30,7 +34,7 @@ export function useSmoothScroll() {
       lenis.destroy()
       document.documentElement.classList.remove('lenis', 'lenis-smooth')
     }
-  }, [reduced])
+  }, [reduced, enabled])
 }
 
 export function scrollToId(id: string) {

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { usePreferences } from '@/context/PreferencesContext'
 import { useReducedMotion } from './useReducedMotion'
 
 interface ParallaxOptions {
@@ -10,16 +11,15 @@ export function useMouseParallax<T extends HTMLElement>({
 }: ParallaxOptions = {}) {
   const ref = useRef<T>(null)
   const reduced = useReducedMotion()
+  const { finePointer } = usePreferences()
 
   useEffect(() => {
-    if (reduced || strength === 0) return
+    if (reduced || strength === 0 || !finePointer) return
     const node = ref.current
     if (!node) return
 
-    const isTouch = window.matchMedia('(pointer: coarse)').matches
-    if (isTouch) return
-
     let raf = 0
+    let inView = true
     let targetX = 0
     let targetY = 0
     let currentX = 0
@@ -34,21 +34,37 @@ export function useMouseParallax<T extends HTMLElement>({
     }
 
     const tick = () => {
+      if (!inView) {
+        raf = 0
+        return
+      }
       currentX += (targetX - currentX) * 0.08
       currentY += (targetY - currentY) * 0.08
       node.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`
       raf = requestAnimationFrame(tick)
     }
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry?.isIntersecting ?? false
+        if (inView && !raf) {
+          raf = requestAnimationFrame(tick)
+        }
+      },
+      { threshold: 0.01 },
+    )
+    observer.observe(node)
+
     window.addEventListener('mousemove', onMove, { passive: true })
     raf = requestAnimationFrame(tick)
 
     return () => {
       window.removeEventListener('mousemove', onMove)
+      observer.disconnect()
       cancelAnimationFrame(raf)
       node.style.transform = ''
     }
-  }, [reduced, strength])
+  }, [reduced, strength, finePointer])
 
   return ref
 }

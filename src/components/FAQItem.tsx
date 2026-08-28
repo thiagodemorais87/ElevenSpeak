@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { ChevronDown } from 'lucide-react'
 import type { FAQItem as FAQData } from '@/data/faq'
+import { StaggerReveal, StaggerItem } from '@/components/StaggerReveal'
 
 interface FAQItemProps {
   item: FAQData
@@ -11,7 +12,11 @@ interface FAQItemProps {
 
 export function FAQItem({ item, open, onToggle }: FAQItemProps) {
   return (
-    <div className="border-b border-obsidian/15">
+    <div
+      className={`border-b transition-colors ${
+        open ? 'border-lime/50' : 'border-obsidian/15'
+      }`}
+    >
       <button
         type="button"
         className="flex w-full items-center justify-between gap-4 py-5 text-left"
@@ -23,7 +28,7 @@ export function FAQItem({ item, open, onToggle }: FAQItemProps) {
         </span>
         <ChevronDown
           className={`h-5 w-5 shrink-0 text-obsidian/60 transition-transform duration-300 ${
-            open ? 'rotate-180' : ''
+            open ? 'rotate-180 text-lime' : ''
           }`}
           aria-hidden
         />
@@ -51,15 +56,16 @@ export function FAQList({ items }: { items: FAQData[] }) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null)
 
   return (
-    <div>
+    <StaggerReveal>
       {items.map((item) => (
-        <FAQItem
-          key={item.id}
-          item={item}
-          open={openId === item.id}
-          onToggle={() => setOpenId(openId === item.id ? null : item.id)}
-        />
+        <StaggerItem key={item.id}>
+          <FAQItem
+            item={item}
+            open={openId === item.id}
+            onToggle={() => setOpenId(openId === item.id ? null : item.id)}
+          />
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerReveal>
   )
 }

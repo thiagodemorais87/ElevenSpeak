@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Menu, X } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 import { createWhatsAppLink, defaultWhatsAppMessage } from '@/lib/whatsapp'
 import { useActiveSection } from '@/hooks/useScrollProgress'
+import { subscribeScrollMetrics } from '@/hooks/useScrollMetrics'
 import { scrollToId } from '@/hooks/useSmoothScroll'
 
 const NAV_LINKS = [
@@ -15,16 +16,21 @@ const NAV_LINKS = [
   { id: 'contact', label: 'CONTACT' },
 ] as const
 
-export function Navbar() {
+const NAV_SECTION_IDS = NAV_LINKS.map((link) => link.id)
+
+export const Navbar = memo(function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const active = useActiveSection(NAV_LINKS.map((l) => l.id))
+  const active = useActiveSection(NAV_SECTION_IDS)
+  const scrolledRef = useRef(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return subscribeScrollMetrics(({ scrolled: nextScrolled }) => {
+      if (nextScrolled !== scrolledRef.current) {
+        scrolledRef.current = nextScrolled
+        setScrolled(nextScrolled)
+      }
+    })
   }, [])
 
   useEffect(() => {
@@ -67,13 +73,20 @@ export function Navbar() {
                 key={link.id}
                 type="button"
                 onClick={() => go(link.id)}
-                className={`text-[11px] tracking-[0.18em] transition ${
+                className={`relative text-[11px] tracking-[0.18em] transition ${
                   active === link.id
                     ? 'text-lime'
                     : 'text-ivory/70 hover:text-ivory'
                 }`}
               >
-                {link.label}
+                {active === link.id && (
+                  <motion.span
+                    layoutId="nav-active"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-lime"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative">{link.label}</span>
               </button>
             ))}
           </nav>
@@ -121,7 +134,8 @@ export function Navbar() {
                   className="text-left font-display text-3xl font-bold text-ivory"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i }}
+                  exit={{ opacity: 0, x: -12 }}
+                  transition={{ delay: 0.05 * i, duration: 0.35 }}
                 >
                   {link.label}
                 </motion.button>
@@ -143,4 +157,4 @@ export function Navbar() {
       </AnimatePresence>
     </>
   )
-}
+})

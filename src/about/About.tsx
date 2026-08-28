@@ -1,8 +1,7 @@
 import { WhatsAppButton } from '@/components/WhatsAppButton'
-import { BrandPortrait } from '@/components/BrandPortrait'
-import { RenataPicture } from '@/components/RenataPicture'
 import { CountUp } from '@/components/CountUp'
 import { HandwrittenStroke } from '@/components/HandwrittenStroke'
+import { AboutNycSlideshow } from '@/components/AboutNycSlideshow'
 import { aboutContent } from '@/data/about'
 import { useSectionPortal } from '@/hooks/useSectionPortal'
 
@@ -30,7 +29,7 @@ export function About() {
         aria-hidden
       />
 
-      <div className="grid lg:grid-cols-12">
+      <div className="grid lg:grid-cols-12 lg:items-stretch">
         <div className="relative z-10 flex flex-col justify-center px-5 py-24 md:px-8 lg:col-span-5 lg:py-32">
           <p className="text-[11px] tracking-[0.3em] text-lime">03 / 07 · ABOUT</p>
           <h2
@@ -70,43 +69,16 @@ export function About() {
           </div>
         </div>
 
-        <div className="relative min-h-[65vh] bg-ivory lg:col-span-7 lg:min-h-0">
-          <BrandPortrait variant="about" className="-mt-8 h-full lg:-mt-16" showOrbit>
-            <div className="absolute left-4 top-10 z-10 w-36 rotate-[-7deg] bg-warm-white p-2 shadow-xl md:left-8 md:w-40">
-              <div className="aspect-square overflow-hidden bg-obsidian/10">
-                <RenataPicture
-                  alt=""
-                  decorative
-                  className="h-full w-full scale-125 object-cover object-[center_15%]"
-                />
-              </div>
-              <p className="mt-2 font-script text-sm text-obsidian">
-                {aboutContent.polaroidCaption}
-              </p>
-            </div>
-
-            <div className="absolute bottom-28 right-4 z-10 w-40 rotate-[6deg] bg-warm-white p-2 shadow-xl md:right-12 md:w-48">
-              <div className="aspect-[4/3] overflow-hidden bg-obsidian/10">
-                <RenataPicture
-                  alt=""
-                  decorative
-                  className="h-full w-full scale-110 object-cover object-center"
-                />
-              </div>
-              <p className="mt-2 font-script text-sm text-obsidian">
-                {aboutContent.polaroidCaptionSecondary}
-              </p>
-            </div>
-
-            <div className="absolute bottom-8 right-6 z-10 max-w-[150px] rotate-2 bg-lime p-4 text-obsidian shadow-lg md:bottom-12 md:right-10">
-              <p className="font-script text-lg leading-tight">
-                {aboutContent.stickyNote}
-                <span className="mt-1 block text-base" aria-hidden>
-                  ♥
-                </span>
-              </p>
-            </div>
-          </BrandPortrait>
+        <div className="relative flex min-h-[50vh] overflow-hidden bg-obsidian lg:col-span-7 lg:min-h-full">
+          <AboutNycSlideshow />
+          <div className="pointer-events-none absolute bottom-6 right-6 z-20 max-w-[150px] rotate-2 bg-lime p-4 text-obsidian shadow-lg md:bottom-10 md:right-10">
+            <p className="font-script text-lg leading-tight">
+              {aboutContent.stickyNote}
+              <span className="mt-1 block text-base" aria-hidden>
+                ♥
+              </span>
+            </p>
+          </div>
         </div>
       </div>
 

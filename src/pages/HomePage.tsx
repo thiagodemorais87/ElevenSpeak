@@ -1,8 +1,11 @@
-import { lazy, Suspense } from 'react'
+import { lazy } from 'react'
 import { Hero } from '@/hero/Hero'
-import { Manifesto } from '@/manifesto/Manifesto'
 import { About } from '@/about/About'
+import { LazySection } from '@/components/LazySection'
 
+const Manifesto = lazy(() =>
+  import('@/manifesto/Manifesto').then((m) => ({ default: m.Manifesto })),
+)
 const TheSeven = lazy(() =>
   import('@/seven/TheSeven').then((m) => ({ default: m.TheSeven })),
 )
@@ -35,29 +38,47 @@ const Footer = lazy(() =>
   import('@/footer/Footer').then((m) => ({ default: m.Footer })),
 )
 
-function SectionFallback() {
-  return <div className="min-h-[40vh] bg-obsidian" aria-hidden />
-}
-
 export function HomePage() {
   return (
     <main>
       <Hero />
-      <Manifesto />
+      <LazySection>
+        <Manifesto />
+      </LazySection>
       <About />
-      <Suspense fallback={<SectionFallback />}>
+      <LazySection>
         <TheSeven />
+      </LazySection>
+      <LazySection>
         <Methodology />
+      </LazySection>
+      <LazySection>
         <Experience />
+      </LazySection>
+      <LazySection>
         <Programs />
+      </LazySection>
+      <LazySection>
         <Plans />
+      </LazySection>
+      <LazySection>
         <SpeakingClub />
+      </LazySection>
+      <LazySection>
         <Resources />
+      </LazySection>
+      <LazySection>
         <Testimonials />
+      </LazySection>
+      <LazySection>
         <FAQ />
+      </LazySection>
+      <LazySection>
         <FinalCTA />
+      </LazySection>
+      <LazySection>
         <Footer />
-      </Suspense>
+      </LazySection>
     </main>
   )
 }

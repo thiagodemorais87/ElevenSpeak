@@ -3,9 +3,69 @@ import { motion } from 'motion/react'
 import { avulsaPlans, semestralPlans, type PricingMode } from '@/data/plans'
 import { PlanCard } from '@/components/PlanCard'
 import { SectionHeading } from '@/components/SectionHeading'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
+
+function planEnterVariant(index: number, reduced: boolean) {
+  if (reduced) {
+    return {
+      hidden: { opacity: 1, x: 0, y: 0 },
+      visible: { opacity: 1, x: 0, y: 0 },
+    }
+  }
+
+  if (index === 0) {
+    return {
+      hidden: { opacity: 0, x: -48, y: 0 },
+      visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+          type: 'spring' as const,
+          stiffness: 220,
+          damping: 24,
+          delay: 0,
+        },
+      },
+    }
+  }
+
+  if (index === 1) {
+    return {
+      hidden: { opacity: 0, x: 0, y: 40 },
+      visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+          type: 'spring' as const,
+          stiffness: 220,
+          damping: 24,
+          delay: 0.15,
+        },
+      },
+    }
+  }
+
+  return {
+    hidden: { opacity: 0, x: 48, y: 0 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 220,
+        damping: 24,
+        delay: 0.3,
+      },
+    },
+  }
+}
 
 export function Plans() {
   const [mode, setMode] = useState<PricingMode>('avulsa')
+  const reduced = useReducedMotion()
   const plans = mode === 'avulsa' ? avulsaPlans : semestralPlans
 
   return (
@@ -17,9 +77,7 @@ export function Plans() {
       <div
         className="pointer-events-none absolute -right-10 top-20 font-script text-[12rem] leading-none text-yellow/20"
         aria-hidden
-      >
-        ~
-      </div>
+      />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading
@@ -64,9 +122,23 @@ export function Plans() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-3 md:items-stretch">
-          {plans.map((plan) => (
-            <PlanCard key={`${mode}-${plan.id}`} mode={mode} plan={plan} />
+        <div key={mode} className="mt-12 grid gap-4 md:grid-cols-3 md:items-stretch">
+          {plans.map((plan, index) => (
+            <motion.div
+              key={`${mode}-${plan.id}`}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+              variants={planEnterVariant(index, reduced)}
+            >
+              <PlanCard
+                mode={mode}
+                plan={plan}
+                index={index}
+                animationKey={`${mode}-${plan.id}`}
+              />
+            </motion.div>
           ))}
         </div>
 

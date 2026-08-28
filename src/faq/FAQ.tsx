@@ -1,5 +1,6 @@
 import { faqItems } from '@/data/faq'
 import { FAQList } from '@/components/FAQItem'
+import { Reveal } from '@/components/Reveal'
 
 export function FAQ() {
   return (
@@ -8,7 +9,7 @@ export function FAQ() {
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-5">
+        <Reveal className="lg:col-span-5">
           <p className="text-[11px] tracking-[0.3em] text-obsidian/40">FAQ</p>
           <h2
             id="faq-heading"
@@ -19,7 +20,7 @@ export function FAQ() {
           <p className="mt-4 text-obsidian/60">
             Straight answers. If you need more, let&apos;s talk on WhatsApp.
           </p>
-        </div>
+        </Reveal>
         <div className="lg:col-span-7">
           <FAQList items={faqItems} />
         </div>
