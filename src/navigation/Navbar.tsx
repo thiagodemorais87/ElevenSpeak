@@ -58,7 +58,7 @@ export const Navbar = memo(function Navbar() {
           <button
             type="button"
             onClick={() => go('home')}
-            className={`font-display font-bold tracking-tight text-ivory transition-all ${
+            className={`font-display font-bold tracking-tight text-yellow transition-all ${
               scrolled ? 'text-lg' : 'text-xl'
             }`}
             aria-label="Seven Speak home"
@@ -76,7 +76,9 @@ export const Navbar = memo(function Navbar() {
                 className={`relative text-[11px] tracking-[0.18em] transition ${
                   active === link.id
                     ? 'text-orange'
-                    : 'text-ivory/70 hover:text-ivory'
+                    : scrolled
+                      ? 'text-ivory/70 hover:text-ivory'
+                      : 'text-yellow/80 hover:text-yellow'
                 }`}
               >
                 {active === link.id && (
@@ -105,7 +107,7 @@ export const Navbar = memo(function Navbar() {
             </a>
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center text-ivory lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center text-yellow lg:hidden"
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}

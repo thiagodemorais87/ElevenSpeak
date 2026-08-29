@@ -76,28 +76,28 @@ export function Experience() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
+      className="relative overflow-hidden bg-orange px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="experience-heading"
     >
       <div className="mx-auto max-w-5xl text-center">
-        <p className="text-[11px] tracking-[0.3em] text-orange">06 / 07</p>
+        <p className="text-[11px] tracking-[0.3em] text-blue">06 / 07</p>
         <h2
           id="experience-heading"
-          className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl"
+          className="mt-4 font-display text-3xl font-bold tracking-tight text-obsidian md:text-5xl"
         >
           What happens when you start speaking?
         </h2>
 
         <div className="relative mt-16 min-h-[180px] md:min-h-[220px]">
           <p
-            className={`exp-before absolute inset-x-0 font-display text-2xl font-medium leading-snug text-ivory/80 md:text-4xl lg:text-5xl ${
+            className={`exp-before absolute inset-x-0 font-display text-2xl font-medium leading-snug text-obsidian/70 md:text-4xl lg:text-5xl ${
               reduced ? 'relative mb-8 opacity-40' : ''
             }`}
           >
             “I know what I want to say…”
           </p>
           <p
-            className={`exp-after absolute inset-x-0 font-display text-2xl font-bold leading-snug text-orange md:text-4xl lg:text-5xl ${
+            className={`exp-after absolute inset-x-0 font-display text-2xl font-bold leading-snug text-blue md:text-4xl lg:text-5xl ${
               reduced ? 'relative opacity-100' : ''
             }`}
           >
@@ -105,14 +105,14 @@ export function Experience() {
           </p>
         </div>
 
-        <p className="mx-auto mt-20 max-w-lg text-sm text-ivory/55 md:text-base">
+        <p className="mx-auto mt-20 max-w-lg text-sm text-obsidian/70 md:text-base">
           From hesitation to expression. From knowing to speaking. That&apos;s the
           transformation Seven Speak is built for.
         </p>
       </div>
 
       <div
-        className="exp-handoff mx-auto mt-16 h-[2px] w-full max-w-xs origin-left bg-orange"
+        className="exp-handoff mx-auto mt-16 h-[2px] w-full max-w-xs origin-left bg-blue"
         aria-hidden
       />
     </section>

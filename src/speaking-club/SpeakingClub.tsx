@@ -43,7 +43,7 @@ export function SpeakingClub() {
   return (
     <section
       id="speaking-club"
-      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
+      className="relative overflow-hidden bg-blue px-5 py-24 text-yellow md:px-8 md:py-32"
       aria-labelledby="club-heading"
     >
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
@@ -85,7 +85,7 @@ export function SpeakingClub() {
               {clubCards.map((item) => (
                 <div
                   key={item.t}
-                  className="flex gap-4 border border-ivory/15 bg-ivory/[0.03] p-5"
+                  className="flex gap-4 border border-yellow/20 bg-yellow/10 p-5"
                 >
                   <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                   <div>
@@ -109,9 +109,9 @@ export function SpeakingClub() {
             clickEffect={!disableFx}
             disableAnimations={disableFx}
             spotlightRadius={320}
-            glowColor="216, 255, 62"
+            glowColor="255, 107, 0"
             getCardClassName={() =>
-              'flex gap-4 border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-orange/35'
+              'flex gap-4 border-yellow/20 bg-yellow/10 p-5 transition hover:border-orange/50'
             }
             renderCardContent={(_, index) => {
               const item = clubCards[index]!
@@ -121,7 +121,7 @@ export function SpeakingClub() {
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                   <div>
                     <h3 className="font-display text-lg font-semibold">{item.t}</h3>
-                    <p className="mt-1 text-sm text-ivory/60">{item.d}</p>
+                    <p className="mt-1 text-sm text-yellow/75">{item.d}</p>
                   </div>
                 </>
               )

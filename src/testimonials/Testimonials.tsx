@@ -10,7 +10,7 @@ export function Testimonials() {
 
   return (
     <section
-      className="relative overflow-hidden bg-ivory px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="relative overflow-hidden bg-orange px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="testimonials-heading"
     >
       <motion.span
@@ -28,7 +28,7 @@ export function Testimonials() {
         <SectionHeading
           index="TESTIMONIALS"
           title="Words from our students."
-          light
+          theme="orange"
         />
         <h2 id="testimonials-heading" className="sr-only">
           Testimonials

@@ -41,7 +41,7 @@ function MosaicCell({
         <p className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-orange md:text-xs">
           {slide.title}
         </p>
-        <p className="mt-0.5 max-w-[11rem] font-display text-sm font-bold leading-tight text-ivory md:max-w-xs md:text-base">
+        <p className="mt-0.5 max-w-[11rem] font-display text-sm font-bold leading-tight text-yellow md:max-w-xs md:text-base">
           {slide.caption}
         </p>
       </div>
@@ -89,7 +89,7 @@ export function AboutNycSlideshow() {
   return (
     <div
       ref={containerRef}
-      className="relative flex h-full min-h-[50vh] w-full flex-col bg-obsidian lg:min-h-full"
+      className="relative flex h-full min-h-[50vh] w-full flex-col bg-blue lg:min-h-full"
     >
       {hasMultipleSets && !reduced ? (
         <AnimatePresence mode="sync">

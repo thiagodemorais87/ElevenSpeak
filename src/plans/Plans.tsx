@@ -71,7 +71,7 @@ export function Plans() {
   return (
     <section
       id="plans"
-      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
+      className="relative overflow-hidden bg-orange px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="plans-heading"
     >
       <div
@@ -84,13 +84,14 @@ export function Plans() {
           index="PLANS"
           title="Invest in your voice."
           subtitle="Mensalidade avulsa ou pacote semestral com 10% off. Escolha o formato que cabe na sua jornada."
+          theme="orange"
         />
         <h2 id="plans-heading" className="sr-only">
           Plans
         </h2>
 
         <div
-          className="mt-10 inline-flex rounded-full border border-ivory/20 p-1"
+          className="mt-10 inline-flex rounded-full border border-obsidian/25 p-1"
           role="tablist"
           aria-label="Pricing mode"
         >
@@ -107,13 +108,13 @@ export function Plans() {
               aria-selected={mode === tab.id}
               onClick={() => setMode(tab.id)}
               className={`relative rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition ${
-                mode === tab.id ? 'text-obsidian' : 'text-ivory/60 hover:text-ivory'
+                mode === tab.id ? 'text-yellow' : 'text-obsidian/60 hover:text-obsidian'
               }`}
             >
               {mode === tab.id && (
                 <motion.span
                   layoutId="plan-tab"
-                  className="absolute inset-0 rounded-full bg-orange"
+                  className="absolute inset-0 rounded-full bg-blue"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
@@ -142,7 +143,7 @@ export function Plans() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-xs text-ivory/40">
+        <p className="mt-8 text-center text-xs text-obsidian/55">
           Valores por aluno. Aulas 1:1 ou em grupo conforme a modalidade.
         </p>
       </div>

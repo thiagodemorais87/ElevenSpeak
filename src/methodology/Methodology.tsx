@@ -33,7 +33,7 @@ export function Methodology() {
     <section
       ref={portalRef}
       id="pillars"
-      className="relative overflow-hidden bg-ivory px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="relative overflow-hidden bg-yellow px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="method-pillars-heading"
     >
       <div

@@ -64,7 +64,7 @@ export function TheSeven() {
     <section
       id="method"
       ref={sectionRef}
-      className="relative overflow-hidden bg-obsidian text-ivory"
+      className="relative overflow-hidden bg-blue text-yellow"
       aria-labelledby="seven-heading"
     >
       <div
@@ -86,7 +86,7 @@ export function TheSeven() {
               >
                 THE SEVEN
               </h2>
-              <p className="mt-3 max-w-md text-ivory/60">
+              <p className="mt-3 max-w-md text-ivory/75">
                 Seven steps. One goal: your voice.
               </p>
             </div>

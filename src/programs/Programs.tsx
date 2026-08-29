@@ -79,7 +79,7 @@ export function Programs() {
           index="PROGRAMS"
           title="Programs that fit your journey."
           subtitle="Solutions with personality — not one-size-fits-all packages."
-          className="[&_h2]:text-yellow"
+          theme="blue"
         />
         <h2 id="programs-heading" className="sr-only">
           Programs

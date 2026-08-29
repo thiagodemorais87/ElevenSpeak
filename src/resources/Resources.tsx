@@ -60,7 +60,7 @@ export function Resources() {
   return (
     <section
       id="resources"
-      className="bg-ivory px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="bg-yellow px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="resources-heading"
     >
       <div className="mx-auto max-w-6xl">
@@ -68,7 +68,7 @@ export function Resources() {
           index="RESOURCES"
           title="Resources for your evolution."
           subtitle="Materiais e ideias para praticar entre as aulas. Links reais serão adicionados quando os conteúdos estiverem prontos."
-          light
+          theme="yellow"
         />
         <h2 id="resources-heading" className="sr-only">
           Resources
@@ -106,7 +106,7 @@ export function Resources() {
               clickEffect={!disableFx}
               disableAnimations={disableFx}
               spotlightRadius={360}
-              glowColor="255, 0, 122"
+              glowColor="0, 0, 255"
               getCardClassName={(index) => {
                 const resource = resources[index]!
                 const base =

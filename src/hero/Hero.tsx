@@ -53,18 +53,23 @@ export function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-obsidian text-ivory"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-blue text-yellow"
     >
-      {showPlasma && (
-        <div
-          className="pointer-events-none absolute inset-0 z-0 opacity-[0.45]"
-          aria-hidden
-        >
-          <Suspense fallback={null}>
-            <PlasmaWave {...heroPlasmaProps} className="h-full w-full" />
-          </Suspense>
-        </div>
-      )}
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
+        <div className="editorial-grid absolute inset-0 opacity-[0.08]" />
+        {showPlasma ? (
+          <div className="absolute inset-0 opacity-[0.55]">
+            <Suspense fallback={null}>
+              <PlasmaWave {...heroPlasmaProps} className="h-full w-full" />
+            </Suspense>
+          </div>
+        ) : (
+          <>
+            <div className="absolute -right-24 top-0 h-[55vh] w-[55vh] rounded-full bg-orange/20 blur-3xl" />
+            <div className="absolute -left-20 bottom-24 h-72 w-72 rounded-full bg-yellow/15 blur-3xl" />
+          </>
+        )}
+      </div>
 
       <div className="relative mx-auto flex flex-1 flex-col justify-center px-5 pb-8 pt-28 md:px-8 md:pb-12 lg:max-w-7xl lg:pt-24">
         <div className="relative z-10 w-full max-w-4xl">
@@ -73,7 +78,7 @@ export function Hero() {
           <HeroBrandLockup />
 
           <motion.div className="mt-8" {...fadeIn(reduced, 0.35)}>
-            <HandwrittenStroke text="Find your voice." className="text-blue" />
+            <HandwrittenStroke text="Find your voice." className="text-orange" />
           </motion.div>
 
           <motion.div className="mt-8" {...fadeIn(reduced, 0.45)}>

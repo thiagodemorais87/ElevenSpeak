@@ -21,7 +21,7 @@ export function About() {
     <section
       id="about"
       ref={portalRef}
-      className="relative overflow-hidden bg-obsidian text-ivory"
+      className="relative overflow-hidden bg-orange text-obsidian"
       aria-labelledby="about-heading"
     >
       <div
@@ -41,11 +41,11 @@ export function About() {
           </h2>
           <p className="mt-3 font-script text-3xl text-blue">{aboutContent.scriptName}</p>
 
-          <div className="mt-8 space-y-5 text-sm leading-relaxed text-ivory/75 md:text-base">
+          <div className="mt-8 space-y-5 text-sm leading-relaxed text-obsidian/80 md:text-base">
             {aboutContent.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            <p className="font-script text-2xl text-ivory">{aboutContent.closingScript}</p>
+            <p className="font-script text-2xl text-obsidian">{aboutContent.closingScript}</p>
             <div className="pt-2">
               <HandwrittenStroke text="Don't just learn English." className="text-blue" />
             </div>
@@ -53,12 +53,12 @@ export function About() {
 
           <div className="mt-10 space-y-4">
             {aboutContent.highlights.map((item) => (
-              <div key={item.title} className="flex gap-3 border-l border-orange/40 pl-4">
+              <div key={item.title} className="flex gap-3 border-l border-blue/50 pl-4">
                 <div>
-                  <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-orange">
+                  <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-blue">
                     {item.title}
                   </p>
-                  <p className="text-sm text-ivory/55">{item.description}</p>
+                  <p className="text-sm text-obsidian/65">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -69,7 +69,7 @@ export function About() {
           </div>
         </div>
 
-        <div className="relative flex min-h-[50vh] overflow-hidden bg-obsidian lg:col-span-7 lg:min-h-full">
+        <div className="relative flex min-h-[50vh] overflow-hidden bg-blue lg:col-span-7 lg:min-h-full">
           <AboutNycSlideshow />
           <div className="pointer-events-none absolute bottom-6 right-6 z-20 max-w-[150px] rotate-2 bg-orange p-4 text-obsidian shadow-lg md:bottom-10 md:right-10">
             <p className="font-script text-lg leading-tight">
@@ -82,11 +82,11 @@ export function About() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 border-t border-obsidian/10 bg-ivory text-obsidian md:grid-cols-4">
+      <div className="grid grid-cols-2 border-t border-obsidian/15 bg-blue text-yellow md:grid-cols-4">
         {aboutContent.stats.map((stat) => (
           <div
             key={`${stat.label}-${stat.value}`}
-            className="border-r border-obsidian/10 px-5 py-6 last:border-r-0"
+            className="border-r border-yellow/20 px-5 py-6 last:border-r-0"
           >
             <p
               className={`font-display text-2xl font-bold md:text-3xl ${accentClass[stat.accent]}`}
@@ -97,7 +97,7 @@ export function About() {
                 stat.value
               )}
             </p>
-            <p className="mt-1 text-[10px] tracking-[0.2em] text-obsidian/50">{stat.label}</p>
+            <p className="mt-1 text-[10px] tracking-[0.2em] text-yellow/70">{stat.label}</p>
           </div>
         ))}
       </div>
