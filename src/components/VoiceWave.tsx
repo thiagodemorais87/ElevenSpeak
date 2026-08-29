@@ -26,7 +26,7 @@ export function VoiceWave({
       {BARS.map((base, i) => (
         <span
           key={i}
-          className="voice-wave-bar w-[2px] rounded-full bg-lime/70"
+          className="voice-wave-bar w-[2px] rounded-full bg-orange/70"
           style={{
             height: `${base * 100}%`,
             animationDelay: `${i * 0.08}s`,

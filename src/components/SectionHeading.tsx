@@ -27,7 +27,7 @@ export function SectionHeading({
             }`}
           >
             {index && (
-              <span className={light ? 'text-magenta' : 'text-lime'}>{index}</span>
+              <span className={light ? 'text-blue' : 'text-orange'}>{index}</span>
             )}
             {eyebrow && <span>{eyebrow}</span>}
           </div>

@@ -58,7 +58,7 @@ export function TheSeven() {
   const stepLabel = String(active + 1).padStart(2, '0')
   const lineWidth = `${((active + 1) / sevenSteps.length) * 100}%`
 
-  const bgAccent = active % 2 === 0 ? 'bg-lime/[0.04]' : 'bg-magenta/[0.05]'
+  const bgAccent = active % 2 === 0 ? 'bg-orange/[0.04]' : 'bg-blue/[0.05]'
 
   return (
     <section
@@ -79,7 +79,7 @@ export function TheSeven() {
         <div className="mx-auto w-full max-w-6xl">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="text-[11px] tracking-[0.3em] text-lime">04 / 07</p>
+              <p className="text-[11px] tracking-[0.3em] text-orange">04 / 07</p>
               <h2
                 id="seven-heading"
                 className="mt-3 font-display text-5xl font-bold tracking-tight md:text-7xl"
@@ -96,7 +96,7 @@ export function TheSeven() {
               <AnimatePresence mode="wait">
                 <motion.p
                   key={stepLabel}
-                  className="absolute inset-0 flex items-baseline font-display text-6xl font-bold tabular-nums text-lime md:text-8xl"
+                  className="absolute inset-0 flex items-baseline font-display text-6xl font-bold tabular-nums text-orange md:text-8xl"
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -112,7 +112,7 @@ export function TheSeven() {
           <div className="mt-10 h-[2px] w-full bg-ivory/10">
             <div
               ref={progressBarRef}
-              className="h-full bg-lime transition-[width] duration-150 ease-out"
+              className="h-full bg-orange transition-[width] duration-150 ease-out"
               style={usePin ? { width: '0%' } : { width: lineWidth }}
             />
           </div>
@@ -127,7 +127,7 @@ export function TheSeven() {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.35, ease: easings.cinematic }}
                 >
-                  <p className="font-script text-2xl text-magenta">
+                  <p className="font-script text-2xl text-blue">
                     {step.label} — Journey
                   </p>
                   <h3 className="mt-2 font-display text-4xl font-bold md:text-6xl">
@@ -149,7 +149,7 @@ export function TheSeven() {
                       onClick={() => handleStepClick(i)}
                       className={`flex w-full items-center gap-4 border-l-2 px-4 py-2 text-left transition ${
                         i === active
-                          ? 'border-lime text-ivory'
+                          ? 'border-orange text-ivory'
                           : 'border-transparent text-ivory/35 hover:text-ivory/60'
                       }`}
                     >
@@ -159,7 +159,7 @@ export function TheSeven() {
                       <span className="font-display text-sm font-semibold">{s.title}</span>
                       {i === active && (
                         <span
-                          className="seven-active-dot ml-auto h-1.5 w-1.5 rounded-full bg-lime"
+                          className="seven-active-dot ml-auto h-1.5 w-1.5 rounded-full bg-orange"
                           aria-hidden
                         />
                       )}
@@ -174,7 +174,7 @@ export function TheSeven() {
             <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {sevenSteps.map((s) => (
                 <article key={s.id} className="border border-ivory/15 p-5">
-                  <p className="text-xs text-lime">{s.label}</p>
+                  <p className="text-xs text-orange">{s.label}</p>
                   <h3 className="mt-1 font-display text-xl font-bold">{s.title}</h3>
                   <p className="mt-2 text-sm text-ivory/60">{s.description}</p>
                 </article>

@@ -80,7 +80,7 @@ export function Experience() {
       aria-labelledby="experience-heading"
     >
       <div className="mx-auto max-w-5xl text-center">
-        <p className="text-[11px] tracking-[0.3em] text-lime">06 / 07</p>
+        <p className="text-[11px] tracking-[0.3em] text-orange">06 / 07</p>
         <h2
           id="experience-heading"
           className="mt-4 font-display text-3xl font-bold tracking-tight md:text-5xl"
@@ -97,7 +97,7 @@ export function Experience() {
             “I know what I want to say…”
           </p>
           <p
-            className={`exp-after absolute inset-x-0 font-display text-2xl font-bold leading-snug text-lime md:text-4xl lg:text-5xl ${
+            className={`exp-after absolute inset-x-0 font-display text-2xl font-bold leading-snug text-orange md:text-4xl lg:text-5xl ${
               reduced ? 'relative opacity-100' : ''
             }`}
           >
@@ -112,7 +112,7 @@ export function Experience() {
       </div>
 
       <div
-        className="exp-handoff mx-auto mt-16 h-[2px] w-full max-w-xs origin-left bg-lime"
+        className="exp-handoff mx-auto mt-16 h-[2px] w-full max-w-xs origin-left bg-orange"
         aria-hidden
       />
     </section>

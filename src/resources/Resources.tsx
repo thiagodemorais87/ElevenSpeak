@@ -37,7 +37,7 @@ function ResourceCardInner({ index }: { index: number }) {
         transition={{ type: 'spring', stiffness: 400, damping: 18 }}
       >
         <Icon
-          className="h-5 w-5 text-magenta transition group-hover:text-lime"
+          className="h-5 w-5 text-blue transition group-hover:text-orange"
           aria-hidden
         />
       </motion.div>
@@ -85,7 +85,7 @@ export function Resources() {
                       key={resource.id}
                       className="border border-obsidian/15 bg-warm-white p-6"
                     >
-                      <Icon className="h-5 w-5 text-magenta" aria-hidden />
+                      <Icon className="h-5 w-5 text-blue" aria-hidden />
                       <h3 className="mt-4 font-display text-xl font-bold">{resource.title}</h3>
                       <p className="mt-2 text-sm text-obsidian/65">{resource.description}</p>
                     </div>
@@ -110,7 +110,7 @@ export function Resources() {
               getCardClassName={(index) => {
                 const resource = resources[index]!
                 const base =
-                  'border-obsidian/15 bg-warm-white p-6 transition hover:border-lime/60'
+                  'border-obsidian/15 bg-warm-white p-6 transition hover:border-orange/60'
                 return resource.href ? `${base} block` : base
               }}
               renderCardContent={(_, index) => {

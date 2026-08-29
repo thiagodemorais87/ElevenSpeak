@@ -24,7 +24,7 @@ export function HeroMiniCarousel() {
   if (reduced) {
     return (
       <div className="relative z-20 border-t border-ivory/10 px-5 py-4 md:px-8">
-        <p className="text-center font-display text-[9px] font-semibold tracking-[0.12em] text-lime/80 md:text-[10px]">
+        <p className="text-center font-display text-[9px] font-semibold tracking-[0.12em] text-orange/80 md:text-[10px]">
           {heroCarouselItems.slice(0, 4).join(' · ')}
         </p>
       </div>
@@ -45,7 +45,7 @@ export function HeroMiniCarousel() {
         {[...heroCarouselItems, ...heroCarouselItems].map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="inline-flex min-w-[140px] shrink-0 items-center justify-center rounded-full border border-ivory/15 px-4 py-2 font-display text-[9px] font-semibold tracking-[0.12em] text-lime/90 md:text-[10px]"
+            className="inline-flex min-w-[140px] shrink-0 items-center justify-center rounded-full border border-ivory/15 px-4 py-2 font-display text-[9px] font-semibold tracking-[0.12em] text-orange/90 md:text-[10px]"
           >
             {item}
           </span>

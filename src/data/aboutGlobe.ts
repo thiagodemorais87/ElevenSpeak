@@ -1,3 +1,5 @@
+import { colors, colorRgb } from '@/config/colors'
+
 export const nyc = {
   lat: 40.7128,
   lng: -74.006,
@@ -38,14 +40,14 @@ export const globePoints: GlobePoint[] = [
     lat: nyc.lat,
     lng: nyc.lng,
     size: 0.55,
-    color: '#d8ff3e',
+    color: colors.orange,
     label: nyc.label,
   },
   ...arcOrigins.map((origin) => ({
     lat: origin.lat,
     lng: origin.lng,
     size: 0.28,
-    color: '#ff2d95',
+    color: colors.blue,
     label: origin.city,
   })),
 ]
@@ -55,7 +57,7 @@ export const globeArcs: GlobeArc[] = arcOrigins.map((origin) => ({
   startLng: origin.lng,
   endLat: nyc.lat,
   endLng: nyc.lng,
-  color: ['#ff2d95', '#d8ff3e'],
+  color: [colors.blue, colors.orange],
 }))
 
 export const globeLabels: GlobeLabel[] = [
@@ -63,7 +65,7 @@ export const globeLabels: GlobeLabel[] = [
     lat: nyc.lat,
     lng: nyc.lng,
     text: 'New York · 10+ years',
-    color: 'rgba(216,255,62,0.95)',
+    color: `rgba(${colorRgb.orange.join(',')},0.95)`,
     size: 1.35,
   },
 ]

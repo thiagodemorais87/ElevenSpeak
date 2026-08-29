@@ -1,13 +1,16 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-obsidian: #101010;
-  --color-ivory: #f4f0e8;
-  --color-warm-white: #fffdf8;
-  --color-lime: #d8ff3e;
-  --color-magenta: #ff2d95;
-  --color-yellow: #ffe566;
-  --color-pink-soft: #ff6eb4;
+  --color-obsidian: #000000;
+  --color-ivory: #f0f0f0;
+  --color-warm-white: #ffffff;
+  --color-lime: #a2ff00;
+  --color-magenta: #ff1493;
+  --color-yellow: #ffff00;
+  --color-pink-soft: #ff00ff;
+  --color-blue: #0000ff;
+  --color-orange: #ff6b00;
+  --color-lavender: #e6e6fa;
 
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -38,12 +41,12 @@
   }
 
   ::selection {
-    background: var(--color-lime);
+    background: var(--color-orange);
     color: var(--color-obsidian);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-lime);
+    outline: 2px solid var(--color-orange);
     outline-offset: 3px;
   }
 }
@@ -75,17 +78,17 @@
 
   .editorial-grid-dark {
     background-image:
-      linear-gradient(to right, rgb(16 16 16 / 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(16 16 16 / 0.06) 1px, transparent 1px);
+      linear-gradient(to right, rgb(0 0 0 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(0 0 0 / 0.06) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
   .shimmer-skeleton {
     background: linear-gradient(
       90deg,
-      rgb(16 16 16 / 0.92) 0%,
-      rgb(216 255 62 / 0.06) 50%,
-      rgb(16 16 16 / 0.92) 100%
+      rgb(0 0 0 / 0.92) 0%,
+      rgb(255 107 0 / 0.06) 50%,
+      rgb(0 0 0 / 0.92) 100%
     );
     background-size: 200% 100%;
     animation: shimmer 1.8s ease-in-out infinite;
@@ -93,8 +96,8 @@
 
   .journey-glow {
     box-shadow:
-      0 0 8px rgb(216 255 62 / 0.55),
-      0 0 16px rgb(216 255 62 / 0.25);
+      0 0 8px rgb(255 107 0 / 0.55),
+      0 0 16px rgb(255 107 0 / 0.25);
   }
 
   .seven-active-dot {
@@ -112,7 +115,7 @@
   .tilt-card-shine {
     background: radial-gradient(
       circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgb(216 255 62 / 0.1),
+      rgb(255 107 0 / 0.1),
       transparent 55%
     );
   }
@@ -169,7 +172,7 @@
   .brand-lockup-outline {
     color: transparent;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1.5px #f4f0e8;
+    -webkit-text-stroke: 1.5px var(--color-ivory);
     paint-order: stroke fill;
   }
 
@@ -180,7 +183,7 @@
   }
 
   .brand-lockup-dot {
-    -webkit-text-stroke-color: #d8ff3e;
+    -webkit-text-stroke-color: var(--color-orange);
   }
 
   .about-nyc-mosaic {
@@ -379,13 +382,13 @@
   --glow-y: 50%;
   --glow-intensity: 0;
   --glow-radius: 200px;
-  --bento-glow-rgb: 132, 0, 255;
-  --border-color: #2f293a;
-  --background-dark: #120f17;
+  --bento-glow-rgb: 0, 0, 255;
+  --border-color: rgb(0 0 0 / 0.2);
+  --background-dark: #000000;
   --white: hsl(0, 0%, 100%);
-  --purple-primary: rgba(132, 0, 255, 1);
-  --purple-glow: rgba(132, 0, 255, 0.2);
-  --purple-border: rgba(132, 0, 255, 0.8);
+  --purple-primary: rgba(0, 0, 255, 1);
+  --purple-glow: rgba(0, 0, 255, 0.2);
+  --purple-border: rgba(0, 0, 255, 0.8);
 }
 
 .card-responsive {

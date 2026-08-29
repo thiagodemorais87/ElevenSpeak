@@ -5,7 +5,7 @@
 export interface AboutStat {
   value: string
   label: string
-  accent: 'lime' | 'magenta'
+  accent: 'orange' | 'blue'
 }
 
 export interface AboutHighlight {
@@ -35,10 +35,10 @@ export const aboutContent = {
     },
   ] satisfies AboutHighlight[],
   stats: [
-    { value: '10+', label: 'YEARS IN NYC', accent: 'lime' },
-    { value: '100+', label: 'STUDENTS', accent: 'magenta' },
-    { value: 'FOCUS', label: 'COMMUNICATION', accent: 'lime' },
-    { value: 'YOU', label: 'AT THE CENTER', accent: 'magenta' },
+    { value: '10+', label: 'YEARS IN NYC', accent: 'orange' },
+    { value: '100+', label: 'STUDENTS', accent: 'blue' },
+    { value: 'FOCUS', label: 'COMMUNICATION', accent: 'orange' },
+    { value: 'YOU', label: 'AT THE CENTER', accent: 'blue' },
   ] satisfies AboutStat[],
   polaroidCaption: 'New York changed everything',
   polaroidCaptionSecondary: 'Real teacher. Real results.',

@@ -110,22 +110,22 @@ export function CustomCursor() {
     >
       <div
         ref={trailRef}
-        className="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-lime/25 will-change-transform"
+        className="absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange/25 will-change-transform"
         style={{ opacity: 0 }}
       />
       <div
         ref={dotRef}
-        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime will-change-transform"
+        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange will-change-transform"
         style={{ opacity: 0 }}
       />
       <div
         ref={ringRef}
-        className="absolute flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-lime/50 will-change-transform"
+        className="absolute flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-orange/50 will-change-transform"
         style={{ opacity: 0 }}
       />
       <span
         ref={labelRef}
-        className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-lime px-3 py-1 font-display text-[10px] font-semibold tracking-wider text-obsidian will-change-transform"
+        className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-orange px-3 py-1 font-display text-[10px] font-semibold tracking-wider text-obsidian will-change-transform"
         style={{ display: 'none', opacity: 0 }}
       />
     </div>

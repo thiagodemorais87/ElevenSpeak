@@ -113,7 +113,7 @@ export function Plans() {
               {mode === tab.id && (
                 <motion.span
                   layoutId="plan-tab"
-                  className="absolute inset-0 rounded-full bg-lime"
+                  className="absolute inset-0 rounded-full bg-orange"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}

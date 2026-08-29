@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { gsap } from '@/lib/gsap';
+import { colors, colorRgb } from '@/config/colors';
 
 export interface BentoCardProps {
   color?: string;
@@ -35,42 +36,42 @@ export interface BentoProps {
 
 const DEFAULT_PARTICLE_COUNT = 12;
 const DEFAULT_SPOTLIGHT_RADIUS = 300;
-const DEFAULT_GLOW_COLOR = '132, 0, 255';
+const DEFAULT_GLOW_COLOR = colorRgb.blue.join(', ');
 const MOBILE_BREAKPOINT = 768;
 
 const cardData: BentoCardProps[] = [
   {
-    color: '#120F17',
+    color: colors.obsidian,
     title: 'Analytics',
     description: 'Track user behavior',
     label: 'Insights'
   },
   {
-    color: '#120F17',
+    color: colors.obsidian,
     title: 'Dashboard',
     description: 'Centralized data view',
     label: 'Overview'
   },
   {
-    color: '#120F17',
+    color: colors.obsidian,
     title: 'Collaboration',
     description: 'Work together seamlessly',
     label: 'Teamwork'
   },
   {
-    color: '#120F17',
+    color: colors.obsidian,
     title: 'Automation',
     description: 'Streamline workflows',
     label: 'Efficiency'
   },
   {
-    color: '#120F17',
+    color: colors.obsidian,
     title: 'Integration',
     description: 'Connect favorite tools',
     label: 'Connectivity'
   },
   {
-    color: '#120F17',
+    color: colors.obsidian,
     title: 'Security',
     description: 'Enterprise-grade protection',
     label: 'Protection'
@@ -719,10 +720,10 @@ export function MagicBento({
     if (isPillarLayout) {
       return (
         <>
-          <div className="pointer-events-none absolute -right-4 -top-6 font-display text-8xl font-bold text-ivory/[0.04] transition group-hover:text-lime/25">
+          <div className="pointer-events-none absolute -right-4 -top-6 font-display text-8xl font-bold text-ivory/[0.04] transition group-hover:text-orange/25">
             {card.label}
           </div>
-          <p className={`relative text-xs tracking-[0.25em] text-magenta ${textClass}`}>{card.label}</p>
+          <p className={`relative text-xs tracking-[0.25em] text-blue ${textClass}`}>{card.label}</p>
           {card.title ? (
             <h3 className={`relative mt-3 font-display text-2xl font-bold tracking-tight md:text-3xl ${textClass}`}>
               {card.title}

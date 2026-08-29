@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { motion } from 'motion/react'
 import { BrandLockupText } from '@/components/BrandLockupText'
 import { heroTextLoopPhrases } from '@/data/programsBento'
+import { colors } from '@/config/colors'
 import { useIntroContext } from '@/context/IntroContext'
 import { useMouseParallax } from '@/hooks/useMouseParallax'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -35,7 +36,7 @@ export function HeroBrandLockup() {
           fontWeight={600}
           letterSpacing={3}
           uppercase
-          color="#d8ff3e"
+          color={colors.orange}
           ribbon={false}
           className="h-16 md:h-20"
         />

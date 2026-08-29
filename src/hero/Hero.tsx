@@ -73,7 +73,7 @@ export function Hero() {
           <HeroBrandLockup />
 
           <motion.div className="mt-8" {...fadeIn(reduced, 0.35)}>
-            <HandwrittenStroke text="Find your voice." className="text-magenta" />
+            <HandwrittenStroke text="Find your voice." className="text-blue" />
           </motion.div>
 
           <motion.div className="mt-8" {...fadeIn(reduced, 0.45)}>
@@ -81,7 +81,7 @@ export function Hero() {
           </motion.div>
 
           <div
-            className="hero-handoff pointer-events-none absolute -bottom-16 left-0 hidden h-16 w-px bg-gradient-to-b from-lime/40 to-transparent opacity-0 md:block"
+            className="hero-handoff pointer-events-none absolute -bottom-16 left-0 hidden h-16 w-px bg-gradient-to-b from-orange/40 to-transparent opacity-0 md:block"
             aria-hidden
           />
         </div>

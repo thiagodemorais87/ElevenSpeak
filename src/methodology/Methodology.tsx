@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { methodology } from '@/data/methodology'
+import { colors } from '@/config/colors'
 import { Reveal } from '@/components/Reveal'
 import { WordReveal } from '@/components/WordReveal'
 import { useSectionPortal } from '@/hooks/useSectionPortal'
@@ -11,12 +12,12 @@ const MagicBento = lazy(() =>
 )
 
 const pillarLine = (
-  <div className="relative mt-6 h-[2px] w-10 bg-lime transition-all duration-300 group-hover:w-20" />
+  <div className="relative mt-6 h-[2px] w-10 bg-orange transition-all duration-300 group-hover:w-20" />
 )
 
 const bentoItems = methodology.map((pillar) => ({
-  color: '#101010',
-  textColor: '#f4f0e8',
+  color: colors.obsidian,
+  textColor: colors.ivory,
   label: pillar.number,
   title: pillar.title,
   description: pillar.description,
@@ -36,7 +37,7 @@ export function Methodology() {
       aria-labelledby="method-pillars-heading"
     >
       <div
-        className="pointer-events-none absolute left-1/2 top-0 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-lime/60 to-transparent"
+        className="pointer-events-none absolute left-1/2 top-0 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-orange/60 to-transparent"
         aria-hidden
       />
 
@@ -44,7 +45,7 @@ export function Methodology() {
         <Reveal>
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-xs tracking-[0.22em] uppercase text-obsidian/50">
-              <span className="text-magenta">05 / 07</span>
+              <span className="text-blue">05 / 07</span>
               <span>METHOD</span>
             </div>
             <WordReveal
@@ -68,7 +69,7 @@ export function Methodology() {
                     key={pillar.id}
                     className="min-h-[220px] border border-obsidian/15 bg-obsidian p-6 text-ivory md:p-8"
                   >
-                    <p className="text-xs tracking-[0.25em] text-magenta">{pillar.number}</p>
+                    <p className="text-xs tracking-[0.25em] text-blue">{pillar.number}</p>
                     <h3 className="mt-3 font-display text-2xl font-bold tracking-tight md:text-3xl">
                       {pillar.title}
                     </h3>

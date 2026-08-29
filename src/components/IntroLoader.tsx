@@ -2,6 +2,7 @@ import { useEffect, useState, lazy, Suspense } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { BrandLockupText, brandLockupIntroClass } from '@/components/BrandLockupText'
 import { aboutContent } from '@/data/about'
+import { colors } from '@/config/colors'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { easings } from '@/lib/animations'
@@ -74,7 +75,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
             <div className="absolute inset-0 flex items-center justify-center opacity-70">
               <Suspense fallback={null}>
                 <div className="h-[min(50vh,30rem)] w-[min(50vh,30rem)]">
-                  <Orb hue={95} backgroundColor="#101010" className="h-full w-full" />
+                  <Orb hue={95} backgroundColor={colors.obsidian} className="h-full w-full" />
                 </div>
               </Suspense>
             </div>
@@ -91,7 +92,7 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
               layout="inline"
               className={brandLockupIntroClass}
             />
-            <p className="mt-4 font-script text-2xl text-magenta md:text-3xl">
+            <p className="mt-4 font-script text-2xl text-blue md:text-3xl">
               {aboutContent.scriptName}
             </p>
           </motion.div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useInView } from 'motion/react'
 import { gsap } from '@/lib/gsap'
+import { colorRgb } from '@/config/colors'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { VoiceWave } from '@/components/VoiceWave'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -56,12 +57,12 @@ export function FinalCTA() {
       aria-labelledby="cta-heading"
     >
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(216,255,62,0.12),transparent_70%)]"
+        className={`pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(${colorRgb.orange.join(',')},0.12),transparent_70%)]`}
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-4xl text-center">
-        <p className="text-[11px] tracking-[0.3em] text-lime">07 / 07</p>
+        <p className="text-[11px] tracking-[0.3em] text-orange">07 / 07</p>
         <WordReveal
           as="h2"
           id="cta-heading"
@@ -98,7 +99,7 @@ export function FinalCTA() {
           {CTA_DOTS.map((i) => (
             <span
               key={i}
-              className="cta-dot h-1.5 w-1.5 rounded-full bg-lime opacity-60"
+              className="cta-dot h-1.5 w-1.5 rounded-full bg-orange opacity-60"
               style={{ animationDelay: `${i * 0.2}s` }}
             />
           ))}

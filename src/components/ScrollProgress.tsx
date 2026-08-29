@@ -31,12 +31,12 @@ export const ScrollProgress = memo(function ScrollProgress() {
     >
       <div
         ref={barRef}
-        className={`relative h-full origin-left bg-lime ${reduced ? '' : 'journey-glow'}`}
+        className={`relative h-full origin-left bg-orange ${reduced ? '' : 'journey-glow'}`}
         style={{ width: '0%' }}
       />
       <span
         ref={labelRef}
-        className="absolute right-3 top-2 hidden font-display text-[9px] tracking-[0.25em] text-lime/70 sm:block md:right-5"
+        className="absolute right-3 top-2 hidden font-display text-[9px] tracking-[0.25em] text-orange/70 sm:block md:right-5"
         aria-hidden
       >
         01 / 07

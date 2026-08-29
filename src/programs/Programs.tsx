@@ -12,8 +12,8 @@ const MagicBento = lazy(() =>
 )
 
 const accentMap = {
-  lime: 'bg-lime text-obsidian',
-  magenta: 'bg-magenta text-ivory',
+  orange: 'bg-orange text-obsidian',
+  blue: 'bg-blue text-yellow',
   ivory: 'bg-ivory text-obsidian',
 } as const
 
@@ -48,11 +48,11 @@ function ProgramCardContent({ program, index }: { program: Program; index: numbe
         </ul>
       </div>
       <div className="flex flex-col items-start justify-between gap-6 md:col-span-3 md:items-end">
-        <div className="h-[2px] w-10 bg-lime transition-all duration-300 group-hover:w-20" />
+        <div className="h-[2px] w-10 bg-orange transition-all duration-300 group-hover:w-20" />
         <WhatsAppButton
           planName={program.name}
           label="LET'S TALK →"
-          variant={index % 2 === 1 ? 'lime' : 'dark'}
+          variant={index % 2 === 1 ? 'orange' : 'dark'}
         />
       </div>
     </>
@@ -67,11 +67,11 @@ export function Programs() {
   return (
     <section
       id="programs"
-      className="relative bg-magenta px-5 py-24 text-ivory md:px-8 md:py-32"
+      className="relative bg-blue px-5 py-24 text-ivory md:px-8 md:py-32"
       aria-labelledby="programs-heading"
     >
       <div
-        className="pointer-events-none absolute left-1/2 top-0 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-lime to-transparent"
+        className="pointer-events-none absolute left-1/2 top-0 h-12 w-px -translate-x-1/2 bg-gradient-to-b from-orange to-transparent"
         aria-hidden
       />
       <div className="mx-auto max-w-6xl">
@@ -79,6 +79,7 @@ export function Programs() {
           index="PROGRAMS"
           title="Programs that fit your journey."
           subtitle="Solutions with personality — not one-size-fits-all packages."
+          className="[&_h2]:text-yellow"
         />
         <h2 id="programs-heading" className="sr-only">
           Programs
@@ -113,7 +114,7 @@ export function Programs() {
               clickEffect={!disableFx}
               disableAnimations={disableFx}
               spotlightRadius={360}
-              glowColor="216, 255, 62"
+              glowColor="255, 107, 0"
               getCardClassName={(index) =>
                 `grid gap-6 border-obsidian/20 p-6 transition duration-300 ease-out md:grid-cols-12 md:p-8 ${
                   !disableFx ? 'hover:-translate-y-1 hover:scale-[1.01]' : ''

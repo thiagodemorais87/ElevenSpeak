@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import type { AvulsaPlan, SemestralPlan, PricingMode } from '@/data/plans'
 import { formatBRL } from '@/data/plans'
+import { colors } from '@/config/colors'
 import { WhatsAppButton } from './WhatsAppButton'
 import { TiltCard3D, TiltCardLayer } from './TiltCard3D'
 import { FastPrice } from './FastPrice'
@@ -34,7 +35,7 @@ export function PlanCard({ mode, plan, index = 0, animationKey }: PlanCardProps)
       featured={featured}
       className={`relative flex flex-col border p-6 md:p-8 ${
         featured
-          ? 'min-h-[340px] border-lime bg-lime text-obsidian md:z-10 md:scale-[1.04]'
+          ? 'min-h-[340px] border-orange bg-orange text-obsidian md:z-10 md:scale-[1.04]'
           : 'border-ivory/20 bg-obsidian text-ivory'
       }`}
     >
@@ -54,7 +55,7 @@ export function PlanCard({ mode, plan, index = 0, animationKey }: PlanCardProps)
           </TiltCardLayer>
         </div>
         {featured && (
-          <span className="rounded-full bg-obsidian px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-lime">
+          <span className="rounded-full bg-obsidian px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-orange">
             Popular
           </span>
         )}
@@ -104,7 +105,7 @@ export function PlanCard({ mode, plan, index = 0, animationKey }: PlanCardProps)
         <WhatsAppButton
           planName={planName}
           label="CHOOSE PLAN →"
-          variant={featured ? 'dark' : 'lime'}
+          variant={featured ? 'dark' : 'orange'}
           className="w-full"
         />
       </motion.div>
@@ -113,7 +114,7 @@ export function PlanCard({ mode, plan, index = 0, animationKey }: PlanCardProps)
 
   if (featured) {
     return (
-      <ElectricBorder color="#d8ff3e" speed={0.8} chaos={0.4} borderRadius={0}>
+      <ElectricBorder color={colors.orange} speed={0.8} chaos={0.4} borderRadius={0}>
         {card}
       </ElectricBorder>
     )

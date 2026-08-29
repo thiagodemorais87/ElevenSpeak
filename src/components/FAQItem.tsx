@@ -14,7 +14,7 @@ export function FAQItem({ item, open, onToggle }: FAQItemProps) {
   return (
     <div
       className={`border-b transition-colors ${
-        open ? 'border-lime/50' : 'border-obsidian/15'
+        open ? 'border-orange/50' : 'border-obsidian/15'
       }`}
     >
       <button
@@ -28,7 +28,7 @@ export function FAQItem({ item, open, onToggle }: FAQItemProps) {
         </span>
         <ChevronDown
           className={`h-5 w-5 shrink-0 text-obsidian/60 transition-transform duration-300 ${
-            open ? 'rotate-180 text-lime' : ''
+            open ? 'rotate-180 text-orange' : ''
           }`}
           aria-hidden
         />

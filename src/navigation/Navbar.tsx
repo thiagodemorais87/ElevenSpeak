@@ -64,7 +64,7 @@ export const Navbar = memo(function Navbar() {
             aria-label="Seven Speak home"
           >
             SEVEN SPEAK
-            <span className="text-lime">.</span>
+            <span className="text-orange">.</span>
           </button>
 
           <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
@@ -75,14 +75,14 @@ export const Navbar = memo(function Navbar() {
                 onClick={() => go(link.id)}
                 className={`relative text-[11px] tracking-[0.18em] transition ${
                   active === link.id
-                    ? 'text-lime'
+                    ? 'text-orange'
                     : 'text-ivory/70 hover:text-ivory'
                 }`}
               >
                 {active === link.id && (
                   <motion.span
                     layoutId="nav-active"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-lime"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-orange"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -97,7 +97,7 @@ export const Navbar = memo(function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor="talk"
-              className={`hidden rounded-full bg-lime font-display text-xs font-semibold tracking-wide text-obsidian transition hover:brightness-105 sm:inline-flex ${
+              className={`hidden rounded-full bg-orange font-display text-xs font-semibold tracking-wide text-obsidian transition hover:brightness-105 sm:inline-flex ${
                 scrolled ? 'px-4 py-2' : 'px-5 py-2.5'
               }`}
             >
@@ -145,11 +145,11 @@ export const Navbar = memo(function Navbar() {
               href={createWhatsAppLink(defaultWhatsAppMessage())}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto rounded-full bg-lime px-6 py-4 text-center font-display text-sm font-semibold text-obsidian"
+              className="mt-auto rounded-full bg-orange px-6 py-4 text-center font-display text-sm font-semibold text-obsidian"
             >
               LET&apos;S TALK →
             </a>
-            <p className="mt-4 font-script text-xl text-magenta">
+            <p className="mt-4 font-script text-xl text-blue">
               {siteConfig.slogan}
             </p>
           </motion.div>

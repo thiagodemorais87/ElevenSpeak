@@ -38,7 +38,7 @@ function MosaicCell({
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/55 via-obsidian/10 to-transparent" />
 
       <div className="absolute bottom-3 left-3 z-10 md:bottom-4 md:left-4">
-        <p className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-lime md:text-xs">
+        <p className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-orange md:text-xs">
           {slide.title}
         </p>
         <p className="mt-0.5 max-w-[11rem] font-display text-sm font-bold leading-tight text-ivory md:max-w-xs md:text-base">

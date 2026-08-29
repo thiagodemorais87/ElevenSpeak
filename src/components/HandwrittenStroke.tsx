@@ -50,7 +50,7 @@ export function HandwrittenStroke({ text, className = '' }: HandwrittenStrokePro
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
-          className="text-lime"
+          className="text-orange"
           style={{
             strokeDasharray: 220,
             strokeDashoffset: drawn ? 0 : 220,

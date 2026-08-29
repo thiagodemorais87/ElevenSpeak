@@ -1,4 +1,5 @@
 import { useEffect, useRef, useCallback, type CSSProperties, type ReactNode } from 'react';
+import { colors } from '@/config/colors';
 
 function hexToRgba(hex: string, alpha: number = 1): string {
   if (!hex) return `rgba(0,0,0,${alpha})`;
@@ -28,7 +29,7 @@ interface ElectricBorderProps {
 
 export function ElectricBorder({
   children,
-  color = '#5227FF',
+  color = colors.orange,
   speed = 1,
   chaos = 0.12,
   borderRadius = 24,

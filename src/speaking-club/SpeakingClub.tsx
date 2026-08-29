@@ -48,7 +48,7 @@ export function SpeakingClub() {
     >
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="text-[11px] tracking-[0.3em] text-lime">SPEAKING CLUB</p>
+          <p className="text-[11px] tracking-[0.3em] text-orange">SPEAKING CLUB</p>
           <h2
             id="club-heading"
             className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl"
@@ -87,7 +87,7 @@ export function SpeakingClub() {
                   key={item.t}
                   className="flex gap-4 border border-ivory/15 bg-ivory/[0.03] p-5"
                 >
-                  <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
+                  <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                   <div>
                     <h3 className="font-display text-lg font-semibold">{item.t}</h3>
                     <p className="mt-1 text-sm text-ivory/60">{item.d}</p>
@@ -111,14 +111,14 @@ export function SpeakingClub() {
             spotlightRadius={320}
             glowColor="216, 255, 62"
             getCardClassName={() =>
-              'flex gap-4 border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-lime/35'
+              'flex gap-4 border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-orange/35'
             }
             renderCardContent={(_, index) => {
               const item = clubCards[index]!
               const Icon = item.icon
               return (
                 <>
-                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-lime" aria-hidden />
+                  <Icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                   <div>
                     <h3 className="font-display text-lg font-semibold">{item.t}</h3>
                     <p className="mt-1 text-sm text-ivory/60">{item.d}</p>

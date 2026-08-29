@@ -41,7 +41,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
           transition={{ duration: 0.45, ease: easings.smooth }}
           className="max-w-4xl"
         >
-          <span className="font-display text-6xl leading-none text-magenta md:text-8xl">
+          <span className="font-display text-6xl leading-none text-blue md:text-8xl">
             “
           </span>
           <p className="mt-2 font-display text-2xl font-medium leading-snug text-obsidian md:text-4xl lg:text-5xl">
@@ -85,7 +85,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
               aria-label={`Go to testimonial ${i + 1}`}
               onClick={() => setIndex(i)}
               className={`h-1.5 w-6 rounded-full transition ${
-                i === index ? 'bg-magenta' : 'bg-obsidian/20'
+                i === index ? 'bg-blue' : 'bg-obsidian/20'
               }`}
             />
           ))}

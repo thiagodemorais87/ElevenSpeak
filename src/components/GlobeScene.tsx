@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Globe, { type GlobeMethods } from 'react-globe.gl'
 import { globeArcs, globeLabels, globePoints } from '@/data/aboutGlobe'
+import { colorRgb } from '@/config/colors'
 
 interface GlobeSceneProps {
   className?: string
@@ -43,7 +44,7 @@ export function GlobeScene({ className = '', compact = false }: GlobeSceneProps)
         globeImageUrl="/textures/earth-night.jpg"
         backgroundColor="rgba(0,0,0,0)"
         showAtmosphere
-        atmosphereColor="rgba(216,255,62,0.4)"
+        atmosphereColor={`rgba(${colorRgb.orange.join(',')},0.4)`}
         atmosphereAltitude={compact ? 0.12 : 0.14}
         pointsData={introPoints}
         pointLat="lat"

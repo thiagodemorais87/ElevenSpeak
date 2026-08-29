@@ -1,5 +1,6 @@
 import { Renderer, Program, Mesh, Color, Triangle, RenderTarget } from 'ogl';
 import { useEffect, useRef, type CSSProperties } from 'react';
+import { colors as palette } from '@/config/colors';
 
 const MAX_STRANDS = 12;
 const MAX_COLORS = 8;
@@ -204,7 +205,7 @@ const buildPalette = (colors: string[]): number[][] => {
 };
 
 export function Strands({
-  colors = ['#FF4242', '#7C3AED', '#06B6D4', '#EAB308'],
+  colors = [palette.blue, palette.orange],
   count = 3,
   speed = 0.5,
   amplitude = 1,

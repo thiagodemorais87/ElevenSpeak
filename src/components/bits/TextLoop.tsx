@@ -1,5 +1,6 @@
 import { type CSSProperties, useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from '@/lib/gsap';
+import { colors } from '@/config/colors';
 
 export type TextLoopShape = 'wave' | 'circle' | 'infinity' | 'arch' | 'line';
 export type TextLoopDirection = 'forward' | 'reverse';
@@ -83,9 +84,9 @@ export function TextLoop({
   fontWeight = 800,
   letterSpacing = 2,
   uppercase = true,
-  color = '#ffffff',
+  color = colors.warmWhite,
   ribbon = true,
-  ribbonColor = '#5227FF',
+  ribbonColor = colors.blue,
   ribbonWidth = 86,
   pauseOnHover = true,
   className = '',

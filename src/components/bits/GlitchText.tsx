@@ -1,3 +1,4 @@
+import { colors } from '@/config/colors'
 import type { CSSProperties, ReactNode } from 'react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
@@ -45,9 +46,9 @@ export function GlitchText({
   const inlineStyles: GlitchCSSProperties = {
     '--after-duration': `${speed * 3}s`,
     '--before-duration': `${speed * 2}s`,
-    '--after-shadow': enableShadows ? '-4px 0 #d8ff3e' : 'none',
-    '--before-shadow': enableShadows ? '4px 0 #ff2d95' : 'none',
-    '--glitch-bg': '#101010',
+    '--after-shadow': enableShadows ? `-4px 0 ${colors.orange}` : 'none',
+    '--before-shadow': enableShadows ? `4px 0 ${colors.blue}` : 'none',
+    '--glitch-bg': colors.obsidian,
   }
 
   const pseudoClasses = !enableOnHover

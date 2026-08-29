@@ -14,7 +14,7 @@ export function Testimonials() {
       aria-labelledby="testimonials-heading"
     >
       <motion.span
-        className="pointer-events-none absolute left-4 top-16 font-display text-[12rem] leading-none text-magenta/[0.06] md:left-8 md:text-[16rem]"
+        className="pointer-events-none absolute left-4 top-16 font-display text-[12rem] leading-none text-blue/[0.06] md:left-8 md:text-[16rem]"
         aria-hidden
         initial={reduced ? false : { opacity: 0, scale: 0.9 }}
         whileInView={reduced ? undefined : { opacity: 1, scale: 1 }}

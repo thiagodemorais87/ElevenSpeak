@@ -18,7 +18,7 @@ interface BrandLockupTextProps {
 function StaticLockupInline() {
   return (
     <span className="whitespace-nowrap text-ivory">
-      SEVEN SPEAK<span className="text-lime">.</span>
+      SEVEN SPEAK<span className="text-orange">.</span>
     </span>
   )
 }
@@ -40,7 +40,7 @@ function GlitchLockupInline({ glitchSpeed }: { glitchSpeed: number }) {
       <GlitchText
         speed={glitchSpeed}
         className="text-ivory"
-        dot={<span className="text-lime">.</span>}
+        dot={<span className="text-orange">.</span>}
       >
         SPEAK
       </GlitchText>
@@ -80,7 +80,7 @@ function LockupStack({
           <GlitchText
             speed={glitchSpeed}
             className="text-ivory"
-            dot={<span className="text-lime">.</span>}
+            dot={<span className="text-orange">.</span>}
           >
             SPEAK
           </GlitchText>
@@ -105,7 +105,7 @@ function LockupStack({
       <span className="block text-ivory">SEVEN</span>
       <span className="block text-ivory">
         SPEAK
-        <span className="text-lime">.</span>
+        <span className="text-orange">.</span>
       </span>
     </>
   )

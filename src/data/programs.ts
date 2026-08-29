@@ -5,7 +5,7 @@ export interface Program {
   objective: string
   format: string
   benefits: string[]
-  accent: 'lime' | 'magenta' | 'ivory'
+  accent: 'orange' | 'blue' | 'ivory'
 }
 
 export const programs: Program[] = [
@@ -20,7 +20,7 @@ export const programs: Program[] = [
       'Pronunciation & fluency focus',
       'WhatsApp support between classes',
     ],
-    accent: 'lime',
+    accent: 'orange',
   },
   {
     id: 'small-groups',
@@ -33,7 +33,7 @@ export const programs: Program[] = [
       'Lower per-student rate',
       'Community without losing personalization',
     ],
-    accent: 'magenta',
+    accent: 'blue',
   },
   {
     id: 'speaking-club',

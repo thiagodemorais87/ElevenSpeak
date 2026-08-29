@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
+import { colors } from '@/config/colors'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useIsDesktop } from '@/hooks/useIsDesktop'
 import { HandwrittenStroke } from '@/components/HandwrittenStroke'
@@ -57,7 +58,7 @@ export function Manifesto() {
             scale: 1.06,
             opacity: 1,
             ...(useBlur ? { filter: 'blur(0px)' } : {}),
-            color: word.dataset.accent === 'lime' ? '#D8FF3E' : '#101010',
+            color: word.dataset.accent === 'orange' ? colors.orange : colors.obsidian,
             duration: 1,
           },
           i * 0.15,
@@ -75,7 +76,7 @@ export function Manifesto() {
       aria-labelledby="manifesto-heading"
     >
       <div
-        className="pointer-events-none absolute left-1/2 top-0 h-16 w-px -translate-x-1/2 bg-gradient-to-b from-lime/50 to-transparent"
+        className="pointer-events-none absolute left-1/2 top-0 h-16 w-px -translate-x-1/2 bg-gradient-to-b from-orange/50 to-transparent"
         aria-hidden
       />
       <div className="editorial-grid-dark pointer-events-none absolute inset-0 opacity-40" />
@@ -86,30 +87,30 @@ export function Manifesto() {
         </h2>
         <p className="font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           English isn&apos;t just something you{' '}
-          <span className="manifesto-word inline-block" data-accent="lime">
+          <span className="manifesto-word inline-block" data-accent="orange">
             learn
           </span>
           .
         </p>
         <p className="mt-8 font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
           It&apos;s something you{' '}
-          <span className="manifesto-word inline-block" data-accent="lime">
+          <span className="manifesto-word inline-block" data-accent="orange">
             live
           </span>
           .
         </p>
         <p className="mt-14 max-w-2xl font-display text-xl leading-relaxed text-obsidian/70 md:text-2xl">
           Find your{' '}
-          <span className="manifesto-word inline-block font-semibold" data-accent="lime">
+          <span className="manifesto-word inline-block font-semibold" data-accent="orange">
             voice
           </span>
           . Build{' '}
-          <span className="manifesto-word inline-block font-semibold" data-accent="lime">
+          <span className="manifesto-word inline-block font-semibold" data-accent="orange">
             confidence
           </span>
           . Speak beyond words.
         </p>
-        <div className="mt-12 font-script text-3xl text-magenta md:text-4xl">
+        <div className="mt-12 font-script text-3xl text-blue md:text-4xl">
           <BlurText text="Listen more. Speak more. Believe in your process." delay={50} />
         </div>
         <div className="mt-8">

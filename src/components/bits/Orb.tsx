@@ -1,5 +1,6 @@
 import { Mesh, Program, Renderer, Triangle, Vec3 } from 'ogl'
 import { useEffect, useRef } from 'react'
+import { colors } from '@/config/colors'
 
 interface OrbProps {
   hue?: number
@@ -188,7 +189,7 @@ export function Orb({
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
-  backgroundColor = '#101010',
+  backgroundColor = colors.obsidian,
   className = '',
 }: OrbProps) {
   const ctnDom = useRef<HTMLDivElement>(null)

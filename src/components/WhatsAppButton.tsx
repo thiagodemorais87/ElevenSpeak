@@ -2,20 +2,20 @@ import { createWhatsAppLink, defaultWhatsAppMessage, planWhatsAppMessage } from 
 import { cn } from '@/lib/cn'
 import { MagneticButton } from './MagneticButton'
 
-type WhatsAppVariant = 'lime' | 'dark'
+type WhatsAppVariant = 'orange' | 'dark'
 
 interface WhatsAppButtonProps {
   label?: string
   planName?: string
   className?: string
   message?: string
-  /** lime = fundo neon; dark = fundo obsidian com texto lime legível */
+  /** orange = fundo neon; dark = fundo obsidian com texto orange legível */
   variant?: WhatsAppVariant
 }
 
 const variantClasses: Record<WhatsAppVariant, string> = {
-  lime: 'bg-lime text-obsidian hover:brightness-105',
-  dark: 'bg-obsidian text-lime hover:bg-obsidian/90',
+  orange: 'bg-orange text-obsidian hover:brightness-105',
+  dark: 'bg-obsidian text-orange hover:bg-obsidian/90',
 }
 
 export function WhatsAppButton({
@@ -23,7 +23,7 @@ export function WhatsAppButton({
   planName,
   className = '',
   message,
-  variant = 'lime',
+  variant = 'orange',
 }: WhatsAppButtonProps) {
   const text =
     message ??

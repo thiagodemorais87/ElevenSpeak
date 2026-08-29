@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Renderer, Camera, Transform, Program, Mesh, Geometry } from 'ogl';
+import { colors as palette } from '@/config/colors';
 
 function hexToRgb(hex: string): [number, number, number] {
   const r = parseInt(hex.slice(1, 3), 16) / 255;
@@ -145,7 +146,7 @@ export function PlasmaWave(props: PlasmaWaveProps) {
     dir2 = 1.0,
     bend1 = 1,
     bend2 = 0.5,
-    colors = ['#A855F7', '#06B6D4'],
+    colors = [palette.blue, palette.orange],
     lightMode = false,
     className = ''
   } = props;
@@ -244,7 +245,7 @@ export function PlasmaWave(props: PlasmaWaveProps) {
         dir2: d2 = 1.0,
         bend1: b1 = 1,
         bend2: b2 = 0.5,
-        colors: cols = ['#A855F7', '#06B6D4'],
+        colors: cols = [palette.blue, palette.orange],
         lightMode: isLight = false
       } = propsRef.current;
 
