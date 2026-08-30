@@ -1,7 +1,6 @@
 import { useEffect, useState, lazy, Suspense } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { BrandLockupText, brandLockupIntroClass } from '@/components/BrandLockupText'
-import { aboutContent } from '@/data/about'
 import { colors } from '@/config/colors'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -92,9 +91,6 @@ export function IntroLoader({ onComplete }: IntroLoaderProps) {
               layout="inline"
               className={brandLockupIntroClass}
             />
-            <p className="mt-4 font-script text-2xl text-blue md:text-3xl">
-              {aboutContent.scriptName}
-            </p>
           </motion.div>
         </motion.div>
       )}
