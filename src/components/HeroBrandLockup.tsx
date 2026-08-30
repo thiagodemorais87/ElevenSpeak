@@ -36,7 +36,7 @@ export function HeroBrandLockup() {
           fontWeight={600}
           letterSpacing={3}
           uppercase
-          color={colors.yellow}
+          color={colors.orange}
           ribbon={false}
           className="h-16 md:h-20"
         />

@@ -1,15 +1,5 @@
 export type PlanModality = 'individual' | 'duplas' | 'trios'
 
-export type PricingMode = 'avulsa' | 'semestral'
-
-export interface AvulsaPlan {
-  id: PlanModality
-  label: string
-  pricePerHour: number
-  note: string
-  featured?: boolean
-}
-
 export interface SemestralPlan {
   id: PlanModality
   label: string
@@ -21,28 +11,6 @@ export interface SemestralPlan {
   featured?: boolean
 }
 
-export const avulsaPlans: AvulsaPlan[] = [
-  {
-    id: 'individual',
-    label: 'Individual',
-    pricePerHour: 145,
-    note: 'Por hora · aula 1:1',
-    featured: true,
-  },
-  {
-    id: 'duplas',
-    label: 'Duplas',
-    pricePerHour: 110,
-    note: 'Por aluno · por hora',
-  },
-  {
-    id: 'trios',
-    label: 'Trios',
-    pricePerHour: 95,
-    note: 'Por aluno · por hora',
-  },
-]
-
 export const semestralPlans: SemestralPlan[] = [
   {
     id: 'individual',
@@ -51,7 +19,7 @@ export const semestralPlans: SemestralPlan[] = [
     installments: 6,
     total: 2610,
     hours: 20,
-    discountNote: '10% off · 20h no semestre',
+    discountNote: '10% de desconto · 20h no semestre',
     featured: true,
   },
   {
@@ -61,7 +29,7 @@ export const semestralPlans: SemestralPlan[] = [
     installments: 6,
     total: 1980,
     hours: 20,
-    discountNote: '10% off · por aluno',
+    discountNote: '10% de desconto · por aluno',
   },
   {
     id: 'trios',
@@ -70,7 +38,7 @@ export const semestralPlans: SemestralPlan[] = [
     installments: 6,
     total: 1710,
     hours: 20,
-    discountNote: '10% off · por aluno',
+    discountNote: '10% de desconto · por aluno',
   },
 ]
 

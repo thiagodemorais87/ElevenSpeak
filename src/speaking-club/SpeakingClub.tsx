@@ -14,17 +14,17 @@ const MagicBento = lazy(() =>
 const clubCards = [
   {
     icon: MessageCircle,
-    t: 'What it is',
-    d: 'Live conversation sessions focused on fluency, connection and real topics.',
+    t: 'O que é',
+    d: 'Sessões ao vivo de conversação com foco em fluidez, conexão e temas reais.',
   },
   {
     icon: Users,
-    t: 'Who it’s for',
-    d: 'Learners who want more speaking reps and a sense of belonging beyond 1:1 lessons.',
+    t: 'Para quem é',
+    d: 'Quem quer mais prática de fala e um senso de pertencimento além das aulas 1:1.',
   },
   {
     icon: Sparkles,
-    t: 'How it works',
+    t: 'Como funciona',
     d: '[EDITÁVEL] Frequência, duração e formato do clube — atualizar quando confirmado.',
   },
 ] as const
@@ -43,7 +43,7 @@ export function SpeakingClub() {
   return (
     <section
       id="speaking-club"
-      className="relative overflow-hidden bg-blue px-5 py-24 text-yellow md:px-8 md:py-32"
+      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
       aria-labelledby="club-heading"
     >
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-2 lg:items-center">
@@ -53,11 +53,11 @@ export function SpeakingClub() {
             id="club-heading"
             className="mt-4 font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl"
           >
-            Speak more.
+            Fale mais.
             <br />
-            Connect more.
+            Conecte mais.
             <br />
-            Belong more.
+            Pertenca mais.
           </h2>
           <div className="mt-5 flex items-center gap-4">
             <LottieAccent
@@ -67,8 +67,8 @@ export function SpeakingClub() {
             <VoiceWave />
           </div>
           <p className="mt-6 max-w-md text-ivory/65">
-            A community space to practice English out loud — guided themes, warm energy,
-            and the courage that grows when you&apos;re not alone.
+            Um espaço de comunidade para praticar inglês em voz alta — temas guiados,
+            energia acolhedora e a coragem que cresce quando você não está sozinho.
           </p>
           <div className="mt-8">
             <WhatsAppButton
@@ -85,7 +85,7 @@ export function SpeakingClub() {
               {clubCards.map((item) => (
                 <div
                   key={item.t}
-                  className="flex gap-4 border border-yellow/20 bg-yellow/10 p-5"
+                  className="flex gap-4 border border-ivory/15 bg-ivory/[0.03] p-5"
                 >
                   <item.icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                   <div>
@@ -109,9 +109,9 @@ export function SpeakingClub() {
             clickEffect={!disableFx}
             disableAnimations={disableFx}
             spotlightRadius={320}
-            glowColor="255, 107, 0"
+            glowColor="232, 137, 58"
             getCardClassName={() =>
-              'flex gap-4 border-yellow/20 bg-yellow/10 p-5 transition hover:border-orange/50'
+              'flex gap-4 border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-orange/35'
             }
             renderCardContent={(_, index) => {
               const item = clubCards[index]!
@@ -121,7 +121,7 @@ export function SpeakingClub() {
                   <Icon className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden />
                   <div>
                     <h3 className="font-display text-lg font-semibold">{item.t}</h3>
-                    <p className="mt-1 text-sm text-yellow/75">{item.d}</p>
+                    <p className="mt-1 text-sm text-ivory/60">{item.d}</p>
                   </div>
                 </>
               )

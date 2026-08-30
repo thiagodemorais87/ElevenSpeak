@@ -8,12 +8,12 @@ import { subscribeScrollMetrics } from '@/hooks/useScrollMetrics'
 import { scrollToId } from '@/hooks/useSmoothScroll'
 
 const NAV_LINKS = [
-  { id: 'home', label: 'HOME' },
-  { id: 'about', label: 'ABOUT' },
-  { id: 'programs', label: 'PROGRAMS' },
+  { id: 'home', label: 'INÍCIO' },
+  { id: 'about', label: 'SOBRE' },
+  { id: 'programs', label: 'PROGRAMAS' },
   { id: 'speaking-club', label: 'SPEAKING CLUB' },
-  { id: 'resources', label: 'RESOURCES' },
-  { id: 'contact', label: 'CONTACT' },
+  { id: 'resources', label: 'RECURSOS' },
+  { id: 'contact', label: 'CONTATO' },
 ] as const
 
 const NAV_SECTION_IDS = NAV_LINKS.map((link) => link.id)
@@ -58,16 +58,16 @@ export const Navbar = memo(function Navbar() {
           <button
             type="button"
             onClick={() => go('home')}
-            className={`font-display font-bold tracking-tight text-yellow transition-all ${
+            className={`font-display font-bold tracking-tight text-ivory transition-all ${
               scrolled ? 'text-lg' : 'text-xl'
             }`}
-            aria-label="Seven Speak home"
+            aria-label="Seven Speak — início"
           >
             SEVEN SPEAK
             <span className="text-orange">.</span>
           </button>
 
-          <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">
             {NAV_LINKS.map((link) => (
               <button
                 key={link.id}
@@ -76,9 +76,7 @@ export const Navbar = memo(function Navbar() {
                 className={`relative text-[11px] tracking-[0.18em] transition ${
                   active === link.id
                     ? 'text-orange'
-                    : scrolled
-                      ? 'text-ivory/70 hover:text-ivory'
-                      : 'text-yellow/80 hover:text-yellow'
+                    : 'text-ivory/70 hover:text-ivory'
                 }`}
               >
                 {active === link.id && (
@@ -107,8 +105,8 @@ export const Navbar = memo(function Navbar() {
             </a>
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center text-yellow lg:hidden"
-              aria-label={open ? 'Close menu' : 'Open menu'}
+              className="inline-flex h-10 w-10 items-center justify-center text-ivory lg:hidden"
+              aria-label={open ? 'Fechar menu' : 'Abrir menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
             >
@@ -127,7 +125,7 @@ export const Navbar = memo(function Navbar() {
             exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
-            <nav className="flex flex-1 flex-col gap-6" aria-label="Mobile">
+            <nav className="flex flex-1 flex-col gap-6" aria-label="Menu mobile">
               {NAV_LINKS.map((link, i) => (
                 <motion.button
                   key={link.id}

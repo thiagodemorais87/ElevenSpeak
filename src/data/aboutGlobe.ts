@@ -3,7 +3,7 @@ import { colors, colorRgb } from '@/config/colors'
 export const nyc = {
   lat: 40.7128,
   lng: -74.006,
-  label: 'New York',
+  label: 'Nova York',
 } as const
 
 export const arcOrigins = [
@@ -64,7 +64,7 @@ export const globeLabels: GlobeLabel[] = [
   {
     lat: nyc.lat,
     lng: nyc.lng,
-    text: 'New York · 10+ years',
+    text: 'Nova York · 10+ anos',
     color: `rgba(${colorRgb.orange.join(',')},0.95)`,
     size: 1.35,
   },

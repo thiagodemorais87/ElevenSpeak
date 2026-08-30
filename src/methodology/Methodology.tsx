@@ -33,7 +33,7 @@ export function Methodology() {
     <section
       ref={portalRef}
       id="pillars"
-      className="relative overflow-hidden bg-yellow px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="relative overflow-hidden bg-ivory px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="method-pillars-heading"
     >
       <div
@@ -46,16 +46,16 @@ export function Methodology() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-3 text-xs tracking-[0.22em] uppercase text-obsidian/50">
               <span className="text-blue">05 / 07</span>
-              <span>METHOD</span>
+              <span>MÉTODO</span>
             </div>
             <WordReveal
               as="h2"
               id="method-pillars-heading"
-              text="Your English. Your rhythm."
+              text="Seu inglês. Seu ritmo."
               className="font-display text-4xl font-bold leading-[0.95] tracking-tight text-obsidian sm:text-5xl md:text-6xl lg:text-7xl !justify-start"
             />
             <p className="max-w-xl text-base text-obsidian/70 md:text-lg">
-              Four pillars. One path to a voice that feels like yours.
+              Quatro pilares. Um caminho para uma voz que parece sua.
             </p>
           </div>
         </Reveal>

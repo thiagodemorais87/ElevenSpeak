@@ -1,10 +1,10 @@
 import { programs } from '@/data/programs'
 
 export const heroPillars = [
-  'SPEAK EVERY DAY',
-  'REAL ENGLISH',
-  'FLUENCY IN ACTION',
-  'YOUR VOICE',
+  'FALE TODO DIA',
+  'INGLÊS REAL',
+  'FLUIDEZ EM AÇÃO',
+  'SUA VOZ',
 ] as const
 
 export const heroCarouselItems = [

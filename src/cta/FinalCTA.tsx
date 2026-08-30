@@ -46,14 +46,14 @@ export function FinalCTA() {
   }, [reduced, isDesktop])
 
   const button = (
-    <WhatsAppButton label="Talk to Seven Speak →" className="px-8 py-4 text-base" />
+    <WhatsAppButton label="LET'S TALK →" className="px-8 py-4 text-base" />
   )
 
   return (
     <section
       id="contact"
       ref={ref}
-      className="relative overflow-hidden bg-orange px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
       aria-labelledby="cta-heading"
     >
       <div
@@ -62,17 +62,17 @@ export function FinalCTA() {
       />
 
       <div className="relative mx-auto max-w-4xl text-center">
-        <p className="text-[11px] tracking-[0.3em] text-blue">07 / 07</p>
+        <p className="text-[11px] tracking-[0.3em] text-orange">07 / 07</p>
         <WordReveal
           as="h2"
           id="cta-heading"
-          text="Your voice is waiting."
-          className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight text-obsidian md:text-7xl lg:text-8xl"
+          text="Sua voz está esperando."
+          className="mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl lg:text-8xl"
         />
         <WordReveal
           as="p"
-          text="Start speaking."
-          className="mt-4 font-display text-3xl font-medium text-obsidian/75 md:text-5xl"
+          text="Comece a falar."
+          className="mt-4 font-display text-3xl font-medium text-ivory/80 md:text-5xl"
           stagger={0.12}
         />
 
@@ -103,7 +103,7 @@ export function FinalCTA() {
               style={{ animationDelay: `${i * 0.2}s` }}
             />
           ))}
-          <span className="ml-4 font-display text-4xl font-bold text-obsidian/20">7</span>
+          <span className="ml-4 font-display text-4xl font-bold text-ivory/15">7</span>
         </div>
       </div>
     </section>

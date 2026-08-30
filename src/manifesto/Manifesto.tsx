@@ -72,7 +72,7 @@ export function Manifesto() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-yellow px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="relative overflow-hidden bg-ivory px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="manifesto-heading"
     >
       <div
@@ -86,35 +86,35 @@ export function Manifesto() {
           Manifesto
         </h2>
         <p className="font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-          English isn&apos;t just something you{' '}
+          Inglês não é só algo que você{' '}
           <span className="manifesto-word inline-block" data-accent="orange">
-            learn
+            aprende
           </span>
           .
         </p>
         <p className="mt-8 font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-          It&apos;s something you{' '}
+          É algo que você{' '}
           <span className="manifesto-word inline-block" data-accent="orange">
-            live
+            vive
           </span>
           .
         </p>
         <p className="mt-14 max-w-2xl font-display text-xl leading-relaxed text-obsidian/70 md:text-2xl">
-          Find your{' '}
+          Encontre sua{' '}
           <span className="manifesto-word inline-block font-semibold" data-accent="orange">
-            voice
+            voz
           </span>
-          . Build{' '}
+          . Construa{' '}
           <span className="manifesto-word inline-block font-semibold" data-accent="orange">
-            confidence
+            confiança
           </span>
           . Speak beyond words.
         </p>
         <div className="mt-12 font-script text-3xl text-blue md:text-4xl">
-          <BlurText text="Listen more. Speak more. Believe in your process." delay={50} />
+          <BlurText text="Ouça mais. Fale mais. Acredite no seu processo." delay={50} />
         </div>
         <div className="mt-8">
-          <HandwrittenStroke text="Your voice, your rules." className="text-obsidian/80" />
+          <HandwrittenStroke text="Sua voz, suas regras." className="text-obsidian/80" />
         </div>
       </div>
     </section>

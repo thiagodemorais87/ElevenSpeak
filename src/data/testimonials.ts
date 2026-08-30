@@ -15,7 +15,7 @@ export const testimonials: Testimonial[] = [
   {
     id: 't1',
     name: '[Nome do aluno]',
-    profile: '[Perfil — ex.: Professional / Traveler]',
+    profile: '[Perfil — ex.: Profissional / Viajante]',
     quote:
       '[EDITÁVEL] Placeholder de depoimento. Substituir por um relato real sobre confiança, fluidez ou transformação.',
     photo: null,

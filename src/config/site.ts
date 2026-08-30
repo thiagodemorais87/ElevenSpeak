@@ -8,7 +8,7 @@ export const siteConfig = {
   email: 'hello@sevenspeak.com',
   /** Usado fora do Hero — bio curta editável */
   tagline:
-    'Personalized English lessons designed around your voice, your goals and your life.',
+    'Aulas de inglês personalizadas em torno da sua voz, dos seus objetivos e da sua vida.',
 } as const
 
 export type SiteConfig = typeof siteConfig

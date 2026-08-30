@@ -22,22 +22,22 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 
 const FOOTER_LINKS = [
-  { id: 'about', label: 'About' },
-  { id: 'method', label: 'Method' },
-  { id: 'programs', label: 'Programs' },
+  { id: 'about', label: 'Sobre' },
+  { id: 'method', label: 'Método' },
+  { id: 'programs', label: 'Programas' },
   { id: 'speaking-club', label: 'Speaking Club' },
-  { id: 'resources', label: 'Resources' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'resources', label: 'Recursos' },
+  { id: 'contact', label: 'Contato' },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-yellow px-5 py-16 text-obsidian md:px-8 md:py-20">
+    <footer className="bg-ivory px-5 py-16 text-obsidian md:px-8 md:py-20">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="font-display text-3xl font-bold tracking-tight">
             SEVEN SPEAK
-            <span className="text-obsidian">.</span>
+            <span className="text-orange">.</span>
           </p>
           <p className="mt-3 font-script text-2xl">{siteConfig.slogan}</p>
           <div className="mt-6 flex gap-4">
@@ -46,7 +46,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-obsidian/30 transition hover:bg-obsidian hover:text-yellow"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-obsidian/30 transition hover:bg-obsidian hover:text-ivory"
             >
               <InstagramIcon className="h-4 w-4" />
             </a>
@@ -55,14 +55,14 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="flex h-10 items-center rounded-full border border-obsidian/30 px-4 text-xs font-semibold tracking-wide transition hover:bg-obsidian hover:text-yellow"
+              className="flex h-10 items-center rounded-full border border-obsidian/30 px-4 text-xs font-semibold tracking-wide transition hover:bg-obsidian hover:text-ivory"
             >
               WhatsApp
             </a>
           </div>
         </div>
 
-        <nav className="md:col-span-4" aria-label="Footer">
+        <nav className="md:col-span-4" aria-label="Rodapé">
           <ul className="grid grid-cols-2 gap-3">
             {FOOTER_LINKS.map((link) => (
               <li key={link.id}>
@@ -79,12 +79,12 @@ export function Footer() {
         </nav>
 
         <div className="md:col-span-3 md:text-right">
-          <p className="font-display text-lg font-bold">Learn. Speak. Become.</p>
+          <p className="font-display text-lg font-bold">Aprenda. Fale. Torne-se.</p>
           <p className="mt-4 text-xs text-obsidian/50">
             © {new Date().getFullYear()} {siteConfig.brandName}
           </p>
           <p className="mt-1 text-[10px] text-obsidian/40">
-            {/* EDITÁVEL */} Privacy Policy placeholder
+            {/* EDITÁVEL */} Placeholder de política de privacidade
           </p>
         </div>
       </div>

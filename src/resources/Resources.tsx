@@ -45,7 +45,7 @@ function ResourceCardInner({ index }: { index: number }) {
       <p className="mt-2 text-sm text-obsidian/65">{resource.description}</p>
       {!resource.href && (
         <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-obsidian/35">
-          Coming soon · editable placeholder
+          Em breve · placeholder editável
         </p>
       )}
     </>
@@ -60,18 +60,18 @@ export function Resources() {
   return (
     <section
       id="resources"
-      className="bg-yellow px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="bg-ivory px-5 py-24 text-obsidian md:px-8 md:py-32"
       aria-labelledby="resources-heading"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          index="RESOURCES"
-          title="Resources for your evolution."
+          index="RECURSOS"
+          title="Recursos para a sua evolução."
           subtitle="Materiais e ideias para praticar entre as aulas. Links reais serão adicionados quando os conteúdos estiverem prontos."
-          theme="yellow"
+          theme="light"
         />
         <h2 id="resources-heading" className="sr-only">
-          Resources
+          Recursos
         </h2>
 
         <div className="mt-12">
@@ -106,7 +106,7 @@ export function Resources() {
               clickEffect={!disableFx}
               disableAnimations={disableFx}
               spotlightRadius={360}
-              glowColor="0, 0, 255"
+              glowColor="61, 90, 254"
               getCardClassName={(index) => {
                 const resource = resources[index]!
                 const base =

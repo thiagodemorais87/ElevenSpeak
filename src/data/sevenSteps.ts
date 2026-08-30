@@ -9,50 +9,50 @@ export const sevenSteps: SevenStep[] = [
   {
     id: 1,
     label: '01',
-    title: 'Discover',
+    title: 'Descobrir',
     description:
-      'We map your voice, goals and the situations where English matters most in your life.',
+      'Mapeamos sua voz, seus objetivos e as situações em que o inglês mais importa na sua vida.',
   },
   {
     id: 2,
     label: '02',
-    title: 'Listen',
+    title: 'Ouvir',
     description:
-      'Train your ear for real rhythm, intonation and the music of natural speech.',
+      'Treinar o ouvido para o ritmo real, a entonação e a música da fala natural.',
   },
   {
     id: 3,
     label: '03',
-    title: 'Understand',
+    title: 'Entender',
     description:
-      'Build clarity without drowning in grammar — meaning first, structure that serves you.',
+      'Construir clareza sem se afogar em gramática — significado primeiro, estrutura a seu serviço.',
   },
   {
     id: 4,
     label: '04',
-    title: 'Practice',
+    title: 'Praticar',
     description:
-      'Small, deliberate reps that stick. Practice that feels useful, not performative.',
+      'Repetições pequenas e deliberadas que ficam. Prática útil, não performática.',
   },
   {
     id: 5,
     label: '05',
-    title: 'Speak',
+    title: 'Falar',
     description:
-      'Put words in motion. Speak out loud, make mistakes, and keep going with support.',
+      'Colocar as palavras em movimento. Falar em voz alta, errar e seguir com apoio.',
   },
   {
     id: 6,
     label: '06',
-    title: 'Connect',
+    title: 'Conectar',
     description:
-      'Use English to connect — meetings, travel, friendships, opportunities that open doors.',
+      'Usar o inglês para conectar — reuniões, viagens, amizades, oportunidades que abrem portas.',
   },
   {
     id: 7,
     label: '07',
-    title: 'Become',
+    title: 'Tornar-se',
     description:
-      'Your voice, fluent and yours — not a costume you wear.',
+      'Sua voz, fluente e sua — não um figurino que você veste.',
   },
 ]

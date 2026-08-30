@@ -62,7 +62,7 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
         <button
           type="button"
           onClick={prev}
-          aria-label="Previous testimonial"
+          aria-label="Depoimento anterior"
           className="flex h-11 w-11 items-center justify-center rounded-full border border-obsidian/20 text-obsidian transition hover:border-obsidian hover:bg-obsidian hover:text-ivory"
         >
           <ChevronLeft className="h-5 w-5" />
@@ -70,19 +70,19 @@ export function TestimonialSlider({ items }: TestimonialSliderProps) {
         <button
           type="button"
           onClick={next}
-          aria-label="Next testimonial"
+          aria-label="Próximo depoimento"
           className="flex h-11 w-11 items-center justify-center rounded-full border border-obsidian/20 text-obsidian transition hover:border-obsidian hover:bg-obsidian hover:text-ivory"
         >
           <ChevronRight className="h-5 w-5" />
         </button>
-        <div className="ml-2 flex gap-2" role="tablist" aria-label="Testimonials">
+        <div className="ml-2 flex gap-2" role="tablist" aria-label="Depoimentos">
           {items.map((item, i) => (
             <button
               key={item.id}
               type="button"
               role="tab"
               aria-selected={i === index}
-              aria-label={`Go to testimonial ${i + 1}`}
+              aria-label={`Ir para depoimento ${i + 1}`}
               onClick={() => setIndex(i)}
               className={`h-1.5 w-6 rounded-full transition ${
                 i === index ? 'bg-blue' : 'bg-obsidian/20'

@@ -13,7 +13,7 @@ const MagicBento = lazy(() =>
 
 const accentMap = {
   orange: 'bg-orange text-obsidian',
-  blue: 'bg-blue text-yellow',
+  blue: 'bg-blue text-ivory',
   ivory: 'bg-ivory text-obsidian',
 } as const
 
@@ -36,10 +36,10 @@ function ProgramCardContent({ program, index }: { program: Program; index: numbe
       </div>
       <div className="space-y-4 text-sm leading-relaxed md:col-span-5 md:text-base">
         <p>
-          <strong className="font-semibold">For:</strong> {program.forWhom}
+          <strong className="font-semibold">Para:</strong> {program.forWhom}
         </p>
         <p>
-          <strong className="font-semibold">Goal:</strong> {program.objective}
+          <strong className="font-semibold">Objetivo:</strong> {program.objective}
         </p>
         <ul className="space-y-1 opacity-80">
           {program.benefits.map((b) => (
@@ -67,7 +67,7 @@ export function Programs() {
   return (
     <section
       id="programs"
-      className="relative bg-blue px-5 py-24 text-ivory md:px-8 md:py-32"
+      className="relative bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
       aria-labelledby="programs-heading"
     >
       <div
@@ -76,13 +76,13 @@ export function Programs() {
       />
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          index="PROGRAMS"
-          title="Programs that fit your journey."
-          subtitle="Solutions with personality — not one-size-fits-all packages."
-          theme="blue"
+          index="PROGRAMAS"
+          title="Programas que cabem na sua jornada."
+          subtitle="Soluções com personalidade — não pacotes iguais para todo mundo."
+          theme="dark"
         />
         <h2 id="programs-heading" className="sr-only">
-          Programs
+          Programas
         </h2>
 
         <div className="mt-14">
@@ -114,7 +114,7 @@ export function Programs() {
               clickEffect={!disableFx}
               disableAnimations={disableFx}
               spotlightRadius={360}
-              glowColor="255, 107, 0"
+              glowColor="232, 137, 58"
               getCardClassName={(index) =>
                 `grid gap-6 border-obsidian/20 p-6 transition duration-300 ease-out md:grid-cols-12 md:p-8 ${
                   !disableFx ? 'hover:-translate-y-1 hover:scale-[1.01]' : ''

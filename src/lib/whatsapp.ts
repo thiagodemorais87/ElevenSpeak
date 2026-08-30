@@ -6,7 +6,7 @@ export function createWhatsAppLink(message: string): string {
 }
 
 export function planWhatsAppMessage(planName: string): string {
-  return `Olá! Vi o plano ${planName} da Seven Speak e gostaria de saber mais sobre as aulas.`
+  return `Olá! Vi o plano ${planName} da Seven Speak (com Ellii incluso) e gostaria de saber mais sobre as aulas.`
 }
 
 export function defaultWhatsAppMessage(): string {

@@ -1,13 +1,12 @@
 import { Reveal } from './Reveal'
 
-export type SectionTheme = 'dark' | 'light' | 'blue' | 'orange' | 'yellow'
+export type SectionTheme = 'dark' | 'light'
 
 interface SectionHeadingProps {
   index?: string
   eyebrow?: string
   title: string
   subtitle?: string
-  /** @deprecated use theme */
   light?: boolean
   theme?: SectionTheme
   className?: string
@@ -24,24 +23,6 @@ const themeStyles: Record<
     subtitle: 'text-ivory/70',
   },
   light: {
-    meta: 'text-obsidian/50',
-    index: 'text-blue',
-    title: 'text-obsidian',
-    subtitle: 'text-obsidian/70',
-  },
-  blue: {
-    meta: 'text-ivory/60',
-    index: 'text-orange',
-    title: 'text-yellow',
-    subtitle: 'text-ivory/80',
-  },
-  orange: {
-    meta: 'text-obsidian/50',
-    index: 'text-blue',
-    title: 'text-obsidian',
-    subtitle: 'text-obsidian/75',
-  },
-  yellow: {
     meta: 'text-obsidian/50',
     index: 'text-blue',
     title: 'text-obsidian',

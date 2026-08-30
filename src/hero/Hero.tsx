@@ -53,20 +53,20 @@ export function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-blue text-yellow"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-obsidian text-ivory"
     >
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
         <div className="editorial-grid absolute inset-0 opacity-[0.08]" />
         {showPlasma ? (
-          <div className="absolute inset-0 opacity-[0.55]">
+          <div className="absolute inset-0 opacity-[0.4]">
             <Suspense fallback={null}>
               <PlasmaWave {...heroPlasmaProps} className="h-full w-full" />
             </Suspense>
           </div>
         ) : (
           <>
-            <div className="absolute -right-24 top-0 h-[55vh] w-[55vh] rounded-full bg-orange/20 blur-3xl" />
-            <div className="absolute -left-20 bottom-24 h-72 w-72 rounded-full bg-yellow/15 blur-3xl" />
+            <div className="absolute -right-24 top-0 h-[55vh] w-[55vh] rounded-full bg-orange/15 blur-3xl" />
+            <div className="absolute -left-20 bottom-24 h-72 w-72 rounded-full bg-blue/10 blur-3xl" />
           </>
         )}
       </div>

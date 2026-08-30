@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import { motion } from 'motion/react'
-import { avulsaPlans, semestralPlans, type PricingMode } from '@/data/plans'
+import { semestralPlans } from '@/data/plans'
 import { PlanCard } from '@/components/PlanCard'
 import { SectionHeading } from '@/components/SectionHeading'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { BookOpen } from 'lucide-react'
 
 function planEnterVariant(index: number, reduced: boolean) {
   if (reduced) {
@@ -64,86 +64,54 @@ function planEnterVariant(index: number, reduced: boolean) {
 }
 
 export function Plans() {
-  const [mode, setMode] = useState<PricingMode>('avulsa')
   const reduced = useReducedMotion()
-  const plans = mode === 'avulsa' ? avulsaPlans : semestralPlans
 
   return (
     <section
       id="plans"
-      className="relative overflow-hidden bg-orange px-5 py-24 text-obsidian md:px-8 md:py-32"
+      className="relative overflow-hidden bg-obsidian px-5 py-24 text-ivory md:px-8 md:py-32"
       aria-labelledby="plans-heading"
     >
       <div
-        className="pointer-events-none absolute -right-10 top-20 font-script text-[12rem] leading-none text-yellow/20"
+        className="pointer-events-none absolute -right-10 top-20 font-script text-[12rem] leading-none text-orange/10"
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading
-          index="PLANS"
-          title="Invest in your voice."
-          subtitle="Mensalidade avulsa ou pacote semestral com 10% off. Escolha o formato que cabe na sua jornada."
-          theme="orange"
+          index="PLANOS"
+          title="Invista na sua voz."
+          subtitle="Pacotes semestrais de 20h com 10% de desconto. Inclui acesso à plataforma Ellii."
+          theme="dark"
         />
         <h2 id="plans-heading" className="sr-only">
-          Plans
+          Planos
         </h2>
 
-        <div
-          className="mt-10 inline-flex rounded-full border border-obsidian/25 p-1"
-          role="tablist"
-          aria-label="Pricing mode"
-        >
-          {(
-            [
-              { id: 'avulsa', label: 'Mensalidade avulsa' },
-              { id: 'semestral', label: 'Semestral — 20h' },
-            ] as const
-          ).map((tab) => (
-            <button
-              key={tab.id}
-              type="button"
-              role="tab"
-              aria-selected={mode === tab.id}
-              onClick={() => setMode(tab.id)}
-              className={`relative rounded-full px-5 py-2.5 text-xs font-semibold tracking-wide transition ${
-                mode === tab.id ? 'text-yellow' : 'text-obsidian/60 hover:text-obsidian'
-              }`}
-            >
-              {mode === tab.id && (
-                <motion.span
-                  layoutId="plan-tab"
-                  className="absolute inset-0 rounded-full bg-blue"
-                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                />
-              )}
-              <span className="relative z-10">{tab.label}</span>
-            </button>
-          ))}
-        </div>
-
-        <div key={mode} className="mt-12 grid gap-4 md:grid-cols-3 md:items-stretch">
-          {plans.map((plan, index) => (
+        <div className="mt-12 grid gap-4 md:grid-cols-3 md:items-stretch">
+          {semestralPlans.map((plan, index) => (
             <motion.div
-              key={`${mode}-${plan.id}`}
+              key={plan.id}
               custom={index}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.25 }}
               variants={planEnterVariant(index, reduced)}
             >
-              <PlanCard
-                mode={mode}
-                plan={plan}
-                index={index}
-                animationKey={`${mode}-${plan.id}`}
-              />
+              <PlanCard plan={plan} index={index} animationKey={plan.id} />
             </motion.div>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-xs text-obsidian/55">
+        <div className="mt-10 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-4">
+          <BookOpen className="h-5 w-5 shrink-0 text-orange" aria-hidden />
+          <p className="max-w-xl text-sm text-ivory/75 md:text-base">
+            Inclui acesso à plataforma <span className="font-semibold text-ivory">Ellii</span>{' '}
+            — ESL Library, com materiais para estudar entre as aulas.
+          </p>
+        </div>
+
+        <p className="mt-6 text-center text-xs text-ivory/40">
           Valores por aluno. Aulas 1:1 ou em grupo conforme a modalidade.
         </p>
       </div>

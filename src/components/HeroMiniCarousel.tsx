@@ -23,8 +23,8 @@ export function HeroMiniCarousel() {
 
   if (reduced) {
     return (
-      <div className="relative z-20 border-t-2 border-obsidian bg-yellow px-5 py-4 md:px-8">
-        <p className="text-center font-display text-[9px] font-bold tracking-[0.12em] text-obsidian md:text-[10px]">
+      <div className="relative z-20 border-t border-ivory/15 bg-ivory px-5 py-4 md:px-8">
+        <p className="text-center font-display text-[9px] font-semibold tracking-[0.12em] text-obsidian/80 md:text-[10px]">
           {heroCarouselItems.slice(0, 4).join(' · ')}
         </p>
       </div>
@@ -36,7 +36,7 @@ export function HeroMiniCarousel() {
   return (
     <div
       ref={ref}
-      className="hero-carousel-mask relative z-20 overflow-hidden border-t-2 border-obsidian bg-yellow py-4"
+      className="hero-carousel-mask relative z-20 overflow-hidden border-t border-ivory/15 bg-ivory py-4"
     >
       <div
         className={`hero-carousel-track flex w-max gap-3 px-3 ${paused ? 'hero-carousel-paused' : ''}`}
@@ -45,7 +45,7 @@ export function HeroMiniCarousel() {
         {[...heroCarouselItems, ...heroCarouselItems].map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="inline-flex min-w-[140px] shrink-0 items-center justify-center border-2 border-obsidian bg-orange px-4 py-2 font-display text-[9px] font-bold tracking-[0.12em] text-obsidian md:text-[10px]"
+            className="inline-flex min-w-[140px] shrink-0 items-center justify-center border border-obsidian/20 bg-warm-white px-4 py-2 font-display text-[9px] font-semibold tracking-[0.12em] text-obsidian md:text-[10px]"
           >
             {item}
           </span>

@@ -7,38 +7,44 @@ export interface FAQItem {
 export const faqItems: FAQItem[] = [
   {
     id: 'how',
-    question: 'How do the lessons work?',
+    question: 'Como funcionam as aulas?',
     answer:
-      'Lessons are live, personalized sessions focused on speaking, listening and the English you need in real life. We set goals together and build from there.',
+      'São sessões ao vivo e personalizadas, com foco em falar, ouvir e no inglês que você precisa no dia a dia. Definimos metas juntos e construímos a partir daí.',
   },
   {
     id: 'personalized',
-    question: 'Are lessons personalized?',
+    question: 'As aulas são personalizadas?',
     answer:
-      'Yes. Every path is shaped around your voice, your goals and your rhythm — not a fixed textbook syllabus.',
+      'Sim. Cada caminho é moldado à sua voz, aos seus objetivos e ao seu ritmo — não a um programa fixo de livro didático.',
   },
   {
     id: 'online',
-    question: 'Are classes online?',
+    question: 'As aulas são online?',
     answer:
-      'Yes. Classes happen online so you can learn from anywhere with a stable connection.',
+      'Sim. As aulas acontecem online para você estudar de qualquer lugar com uma conexão estável.',
   },
   {
     id: 'duration',
-    question: 'How long is each lesson?',
+    question: 'Quanto tempo dura cada aula?',
     answer:
       '[EDITÁVEL] Confirmar duração padrão das aulas (ex.: 50–60 minutos) e atualizar este texto.',
   },
   {
     id: 'who',
-    question: 'Who are the lessons for?',
+    question: 'Para quem são as aulas?',
     answer:
-      'Adults and young adults who want to communicate with confidence — professionals, travelers, creatives and anyone ready to find their voice in English.',
+      'Adultos e jovens que querem se comunicar com confiança — profissionais, viajantes, criativos e qualquer pessoa pronta para encontrar a própria voz em inglês.',
+  },
+  {
+    id: 'ellii',
+    question: 'O que é a plataforma Ellii?',
+    answer:
+      'Ellii (ESL Library) é a plataforma de materiais inclusa nos pacotes semestrais — exercícios e conteúdos para praticar entre as aulas, além das sessões ao vivo.',
   },
   {
     id: 'start',
-    question: 'How do I get started?',
+    question: 'Como começo?',
     answer:
-      'Tap LET\'S TALK and message Seven Speak on WhatsApp. We\'ll understand your goals and suggest the best plan for you.',
+      'Toque em LET\'S TALK e fale com a Seven Speak no WhatsApp. Vamos entender seus objetivos e indicar o melhor plano para você.',
   },
 ]

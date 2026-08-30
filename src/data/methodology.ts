@@ -9,29 +9,29 @@ export const methodology: MethodPillar[] = [
   {
     id: 'personal',
     number: '01',
-    title: 'PERSONAL',
+    title: 'PESSOAL',
     description:
-      'Lessons shaped around your life, your pace and the English you actually need.',
+      'Aulas moldadas à sua vida, ao seu ritmo e ao inglês que você realmente precisa.',
   },
   {
     id: 'practical',
     number: '02',
-    title: 'PRACTICAL',
+    title: 'PRÁTICO',
     description:
-      'Real situations, real language. No filler — only what helps you move forward.',
+      'Situações reais, linguagem real. Sem enrolação — só o que te faz avançar.',
   },
   {
     id: 'conversational',
     number: '03',
-    title: 'CONVERSATIONAL',
+    title: 'CONVERSACIONAL',
     description:
-      'Speaking is the core. You learn by doing, listening and responding with confidence.',
+      'Falar é o centro. Você aprende fazendo, ouvindo e respondendo com confiança.',
   },
   {
     id: 'confident',
     number: '04',
-    title: 'CONFIDENT',
+    title: 'CONFIANTE',
     description:
-      'Lose the fear. Find your voice. Build the quiet certainty that you can say it.',
+      'Perder o medo. Encontrar a voz. Construir a certeza quieta de que você consegue dizer.',
   },
 ]

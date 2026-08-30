@@ -64,7 +64,7 @@ export function TheSeven() {
     <section
       id="method"
       ref={sectionRef}
-      className="relative overflow-hidden bg-blue text-yellow"
+      className="relative overflow-hidden bg-obsidian text-ivory"
       aria-labelledby="seven-heading"
     >
       <div
@@ -87,7 +87,7 @@ export function TheSeven() {
                 THE SEVEN
               </h2>
               <p className="mt-3 max-w-md text-ivory/75">
-                Seven steps. One goal: your voice.
+                Sete passos. Um objetivo: a sua voz.
               </p>
             </div>
 
@@ -128,7 +128,7 @@ export function TheSeven() {
                   transition={{ duration: 0.35, ease: easings.cinematic }}
                 >
                   <p className="font-script text-2xl text-blue">
-                    {step.label} — Journey
+                    {step.label} — Jornada
                   </p>
                   <h3 className="mt-2 font-display text-4xl font-bold md:text-6xl">
                     {step.title}
@@ -141,7 +141,7 @@ export function TheSeven() {
             </div>
 
             <div className="md:col-span-5">
-              <ul className="space-y-2" aria-label="Seven steps">
+              <ul className="space-y-2" aria-label="Sete passos">
                 {sevenSteps.map((s, i) => (
                   <li key={s.id}>
                     <button

@@ -17,30 +17,30 @@ export const aboutContent = {
   scriptName: 'Teacher Re',
   closingScript: 'Inglês que se usa. Confiança que fica.',
   body: [
-    "Learning English isn't just grammar. It's learning how to communicate, lose the fear, gain confidence and speak with naturality — so you can take opportunities and develop your own voice.",
-    'With 10+ years in New York and 100+ students transformed, Renata builds lessons around real situations, pronunciation and fluency that stick.',
+    'Aprender inglês não é só gramática. É aprender a se comunicar, perder o medo, ganhar confiança e falar com naturalidade — para aproveitar oportunidades e desenvolver a sua própria voz.',
+    'Com mais de 10 anos em Nova York e mais de 100 alunos transformados, Renata monta as aulas em torno de situações reais, pronúncia e fluidez que ficam.',
   ],
   highlights: [
     {
       title: 'Pronúncia & fluidez',
-      description: 'Sound natural, feel clear.',
+      description: 'Soar natural, sentir clareza.',
     },
     {
       title: 'Inglês para situações reais',
-      description: 'Meetings, travel, life.',
+      description: 'Reuniões, viagens, vida.',
     },
     {
       title: 'Foco na comunicação',
-      description: 'Meaning first — always.',
+      description: 'Significado primeiro — sempre.',
     },
   ] satisfies AboutHighlight[],
   stats: [
-    { value: '10+', label: 'YEARS IN NYC', accent: 'orange' },
-    { value: '100+', label: 'STUDENTS', accent: 'blue' },
-    { value: 'FOCUS', label: 'COMMUNICATION', accent: 'orange' },
-    { value: 'YOU', label: 'AT THE CENTER', accent: 'blue' },
+    { value: '10+', label: 'ANOS EM NYC', accent: 'orange' },
+    { value: '100+', label: 'ALUNOS', accent: 'blue' },
+    { value: 'FOCO', label: 'COMUNICAÇÃO', accent: 'orange' },
+    { value: 'VOCÊ', label: 'NO CENTRO', accent: 'blue' },
   ] satisfies AboutStat[],
-  polaroidCaption: 'New York changed everything',
-  polaroidCaptionSecondary: 'Real teacher. Real results.',
+  polaroidCaption: 'Nova York mudou tudo',
+  polaroidCaptionSecondary: 'Professora de verdade. Resultados de verdade.',
   stickyNote: 'Find your voice.',
 } as const

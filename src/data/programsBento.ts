@@ -1,6 +1,6 @@
 export const heroTextLoopPhrases = [
   'Find your voice',
   'Speak beyond words',
-  'New York · 10+ years',
+  'Nova York · 10+ anos',
   'Teacher Re',
 ] as const

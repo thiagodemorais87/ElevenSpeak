@@ -8,20 +8,13 @@ interface FAQItemProps {
   item: FAQData
   open: boolean
   onToggle: () => void
-  onBlue?: boolean
 }
 
-export function FAQItem({ item, open, onToggle, onBlue = false }: FAQItemProps) {
+export function FAQItem({ item, open, onToggle }: FAQItemProps) {
   return (
     <div
       className={`border-b transition-colors ${
-        open
-          ? onBlue
-            ? 'border-orange/60'
-            : 'border-orange/50'
-          : onBlue
-            ? 'border-yellow/25'
-            : 'border-obsidian/15'
+        open ? 'border-orange/50' : 'border-obsidian/15'
       }`}
     >
       <button
@@ -30,17 +23,13 @@ export function FAQItem({ item, open, onToggle, onBlue = false }: FAQItemProps) 
         aria-expanded={open}
         onClick={onToggle}
       >
-        <span
-          className={`font-display text-base font-semibold md:text-lg ${
-            onBlue ? 'text-yellow' : 'text-obsidian'
-          }`}
-        >
+        <span className="font-display text-base font-semibold text-obsidian md:text-lg">
           {item.question}
         </span>
         <ChevronDown
-          className={`h-5 w-5 shrink-0 transition-transform duration-300 ${
-            onBlue ? 'text-ivory/70' : 'text-obsidian/60'
-          } ${open ? 'rotate-180 text-orange' : ''}`}
+          className={`h-5 w-5 shrink-0 text-obsidian/60 transition-transform duration-300 ${
+            open ? 'rotate-180 text-orange' : ''
+          }`}
           aria-hidden
         />
       </button>
@@ -53,11 +42,7 @@ export function FAQItem({ item, open, onToggle, onBlue = false }: FAQItemProps) 
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p
-              className={`pb-5 pr-8 text-sm leading-relaxed md:text-base ${
-                onBlue ? 'text-ivory/85' : 'text-obsidian/70'
-              }`}
-            >
+            <p className="pb-5 pr-8 text-sm leading-relaxed text-obsidian/70 md:text-base">
               {item.answer}
             </p>
           </motion.div>
@@ -67,7 +52,7 @@ export function FAQItem({ item, open, onToggle, onBlue = false }: FAQItemProps) 
   )
 }
 
-export function FAQList({ items, onBlue = false }: { items: FAQData[]; onBlue?: boolean }) {
+export function FAQList({ items }: { items: FAQData[] }) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null)
 
   return (
@@ -78,7 +63,6 @@ export function FAQList({ items, onBlue = false }: { items: FAQData[]; onBlue?: 
             item={item}
             open={openId === item.id}
             onToggle={() => setOpenId(openId === item.id ? null : item.id)}
-            onBlue={onBlue}
           />
         </StaggerItem>
       ))}
