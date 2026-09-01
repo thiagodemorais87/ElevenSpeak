@@ -114,7 +114,7 @@ export function Programs() {
               clickEffect={!disableFx}
               disableAnimations={disableFx}
               spotlightRadius={360}
-              glowColor="232, 137, 58"
+              glowColor="230, 160, 106"
               getCardClassName={(index) =>
                 `grid gap-6 border-obsidian/20 p-6 transition duration-300 ease-out md:grid-cols-12 md:p-8 ${
                   !disableFx ? 'hover:-translate-y-1 hover:scale-[1.01]' : ''

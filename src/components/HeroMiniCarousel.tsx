@@ -1,56 +1,60 @@
-import { useEffect, useRef, useState } from 'react'
+import { lazy, Suspense } from 'react'
 import { heroCarouselItems } from '@/data/heroLoops'
+import { colors } from '@/config/colors'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useIsMobile } from '@/hooks/useIsMobile'
+
+const TextLoop = lazy(() =>
+  import('@/components/bits/TextLoop').then((m) => ({ default: m.TextLoop })),
+)
+
+const loopText = heroCarouselItems.join(' · ')
+
+const bandMask =
+  'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
 
 export function HeroMiniCarousel() {
   const reduced = useReducedMotion()
   const isMobile = useIsMobile()
-  const ref = useRef<HTMLDivElement>(null)
-  const [paused, setPaused] = useState(false)
-
-  useEffect(() => {
-    const node = ref.current
-    if (!node || reduced) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setPaused(!entry?.isIntersecting),
-      { threshold: 0.05 },
-    )
-    observer.observe(node)
-    return () => observer.disconnect()
-  }, [reduced])
 
   if (reduced) {
     return (
-      <div className="relative z-20 border-t border-ivory/15 bg-ivory px-5 py-4 md:px-8">
-        <p className="text-center font-display text-[9px] font-semibold tracking-[0.12em] text-obsidian/80 md:text-[10px]">
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 z-[5] -mb-16 px-5 md:bottom-12 md:-mb-24">
+        <p className="text-center font-display text-[10px] font-semibold uppercase tracking-[0.16em] text-ivory/55 md:text-xs">
           {heroCarouselItems.slice(0, 4).join(' · ')}
         </p>
       </div>
     )
   }
 
-  const duration = isMobile ? 42 : 38
-
   return (
     <div
-      ref={ref}
-      className="hero-carousel-mask relative z-20 overflow-hidden border-t border-ivory/15 bg-ivory py-4"
+      className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-52 -mb-16 w-full md:h-72 md:-mb-24 lg:h-[22rem]"
+      style={{
+        maskImage: bandMask,
+        WebkitMaskImage: bandMask,
+      }}
     >
-      <div
-        className={`hero-carousel-track flex w-max gap-3 px-3 ${paused ? 'hero-carousel-paused' : ''}`}
-        style={{ animationDuration: `${duration}s` }}
-      >
-        {[...heroCarouselItems, ...heroCarouselItems].map((item, i) => (
-          <span
-            key={`${item}-${i}`}
-            className="inline-flex min-w-[140px] shrink-0 items-center justify-center border border-obsidian/20 bg-warm-white px-4 py-2 font-display text-[9px] font-semibold tracking-[0.12em] text-obsidian md:text-[10px]"
-          >
-            {item}
-          </span>
-        ))}
-      </div>
+      <Suspense fallback={null}>
+        <TextLoop
+          text={loopText}
+          shape="wave"
+          fit="cover"
+          speed={isMobile ? 48 : 58}
+          separator=" · "
+          curviness={isMobile ? 70 : 95}
+          fontSize={isMobile ? 18 : 28}
+          fontWeight={600}
+          letterSpacing={3}
+          uppercase
+          color={colors.ivory}
+          ribbon
+          ribbonColor={colors.orange}
+          ribbonWidth={isMobile ? 36 : 52}
+          pauseOnHover={false}
+          className="h-full w-full opacity-85"
+        />
+      </Suspense>
     </div>
   )
 }

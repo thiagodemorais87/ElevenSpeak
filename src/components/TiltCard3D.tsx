@@ -105,7 +105,7 @@ export function TiltCard3D({
         className="tilt-card-shine pointer-events-none absolute inset-0 z-[1] opacity-0 transition-opacity duration-300 group-[.tilt-card-active]:opacity-100"
         aria-hidden
       />
-      <div className="tilt-card-inner relative z-[2]">{children}</div>
+      <div className="tilt-card-inner relative z-[2] flex h-full flex-col">{children}</div>
     </div>
   )
 }

@@ -24,9 +24,9 @@ export function PlanCard({ plan, index = 0, animationKey }: PlanCardProps) {
   const card = (
     <TiltCard3D
       featured={featured}
-      className={`relative flex flex-col border p-6 md:p-8 ${
+      className={`relative flex h-full flex-col border p-6 md:p-8 ${
         featured
-          ? 'min-h-[340px] border-orange bg-orange/15 text-ivory md:z-10 md:scale-[1.04]'
+          ? 'min-h-[340px] border-orange bg-orange/15 text-ivory md:z-10'
           : 'border-ivory/20 bg-obsidian text-ivory'
       }`}
     >
@@ -46,7 +46,7 @@ export function PlanCard({ plan, index = 0, animationKey }: PlanCardProps) {
         )}
       </div>
 
-      <TiltCardLayer depth={12} className="mt-8 flex-1">
+      <TiltCardLayer depth={12} className="mt-8">
         <p className="font-display text-4xl font-bold md:text-5xl">
           {plan.installments}x{' '}
           <FastPrice
@@ -60,7 +60,6 @@ export function PlanCard({ plan, index = 0, animationKey }: PlanCardProps) {
         <p className="mt-2 text-sm text-ivory/60">
           Total {formatBRL(plan.total)} · {plan.hours}h · {plan.discountNote}
         </p>
-        <p className="mt-3 text-xs text-orange/90">+ Ellii incluso</p>
       </TiltCardLayer>
 
       <motion.div className="mt-8" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -71,12 +70,37 @@ export function PlanCard({ plan, index = 0, animationKey }: PlanCardProps) {
           className="w-full"
         />
       </motion.div>
+
+      <TiltCardLayer depth={6} className="mt-8 flex-1 border-t border-ivory/10 pt-6">
+        <p className="text-[10px] uppercase tracking-[0.25em] text-ivory/50">
+          O que está incluso
+        </p>
+        <ul className="mt-4 space-y-3">
+          {plan.includes.map((item) => (
+            <li key={item} className="flex gap-2.5 text-sm leading-snug text-ivory/80">
+              <span
+                className={`mt-0.5 shrink-0 font-bold ${featured ? 'text-orange' : 'text-ivory'}`}
+                aria-hidden
+              >
+                ✓
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </TiltCardLayer>
     </TiltCard3D>
   )
 
   if (featured) {
     return (
-      <ElectricBorder color={colors.orange} speed={0.8} chaos={0.4} borderRadius={0}>
+      <ElectricBorder
+        color={colors.orange}
+        speed={0.8}
+        chaos={0.4}
+        borderRadius={0}
+        className="h-full"
+      >
         {card}
       </ElectricBorder>
     )

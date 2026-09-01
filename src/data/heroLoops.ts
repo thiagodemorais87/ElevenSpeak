@@ -1,5 +1,3 @@
-import { programs } from '@/data/programs'
-
 export const heroPillars = [
   'FALE TODO DIA',
   'INGLÊS REAL',
@@ -9,6 +7,8 @@ export const heroPillars = [
 
 export const heroCarouselItems = [
   ...heroPillars,
-  ...programs.map((p) => p.name),
-  'Find your voice.',
+  'AULAS PARTICULARES 1:1',
+  'DUPLAS E TRIOS',
+  'SPEAKING CLUB',
+  'FIND YOUR VOICE.',
 ] as const

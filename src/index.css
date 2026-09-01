@@ -8,8 +8,8 @@
   --color-magenta: #ff1493;
   --color-yellow: #e8c96a;
   --color-pink-soft: #ff00ff;
-  --color-blue: #3d5afe;
-  --color-orange: #e8893a;
+  --color-blue: #6b8fbf;
+  --color-orange: #e6a06a;
   --color-lavender: #e6e6fa;
 
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
@@ -129,24 +129,6 @@
     display: none;
   }
 
-  .hero-carousel-mask {
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 8%,
-      black 92%,
-      transparent
-    );
-  }
-
-  .hero-carousel-track {
-    animation: hero-carousel linear infinite;
-  }
-
-  .hero-carousel-paused {
-    animation-play-state: paused;
-  }
-
   .animate-glitch-after {
     animation: glitch var(--after-duration, 1.8s) infinite linear alternate-reverse;
   }
@@ -235,12 +217,6 @@
   }
   100% {
     background-position: -200% 0;
-  }
-}
-
-@keyframes hero-carousel {
-  to {
-    transform: translateX(-50%);
   }
 }
 
@@ -382,13 +358,13 @@
   --glow-y: 50%;
   --glow-intensity: 0;
   --glow-radius: 200px;
-  --bento-glow-rgb: 61, 90, 254;
+  --bento-glow-rgb: 107, 143, 191;
   --border-color: rgb(16 16 16 / 0.2);
   --background-dark: #101010;
   --white: hsl(0, 0%, 100%);
-  --purple-primary: rgba(61, 90, 254, 1);
-  --purple-glow: rgba(61, 90, 254, 0.2);
-  --purple-border: rgba(61, 90, 254, 0.8);
+  --purple-primary: rgba(107, 143, 191, 1);
+  --purple-glow: rgba(107, 143, 191, 0.2);
+  --purple-border: rgba(107, 143, 191, 0.8);
 }
 
 .card-responsive {

@@ -92,6 +92,7 @@ export function Plans() {
           {semestralPlans.map((plan, index) => (
             <motion.div
               key={plan.id}
+              className="h-full"
               custom={index}
               initial="hidden"
               whileInView="visible"

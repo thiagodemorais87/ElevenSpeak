@@ -7,33 +7,14 @@ export interface Testimonial {
   photo: string | null
 }
 
-/**
- * Placeholders — substituir por depoimentos reais aprovados.
- * Não inventar nomes ou histórias de alunos reais.
- */
+/** Depoimentos reais aprovados. */
 export const testimonials: Testimonial[] = [
   {
     id: 't1',
-    name: '[Nome do aluno]',
-    profile: '[Perfil — ex.: Profissional / Viajante]',
+    name: 'Gabriel Fernandes',
+    profile: 'Aluno',
     quote:
-      '[EDITÁVEL] Placeholder de depoimento. Substituir por um relato real sobre confiança, fluidez ou transformação.',
-    photo: null,
-  },
-  {
-    id: 't2',
-    name: '[Nome do aluno]',
-    profile: '[Perfil]',
-    quote:
-      '[EDITÁVEL] Segundo depoimento placeholder. Manter tom humano e específico quando o conteúdo real estiver pronto.',
-    photo: null,
-  },
-  {
-    id: 't3',
-    name: '[Nome do aluno]',
-    profile: '[Perfil]',
-    quote:
-      '[EDITÁVEL] Terceiro depoimento placeholder. Foque em comunicação, medo perdido e oportunidades abertas.',
+      'Fazer aulas de inglês com a professora Renata mudou completamente a minha relação com o idioma. Antes, eu tinha muita dificuldade  na hora de falar. A metodologia dela é extremamente prática, focada em situações reais do dia a dia, o que me deu a confiança que faltava para finalmente destravar a conversação. Recomendo de olhos fechados para quem quer fluência de verdade!',
     photo: null,
   },
 ]

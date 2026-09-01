@@ -8,8 +8,12 @@ export interface SemestralPlan {
   total: number
   hours: number
   discountNote: string
+  includes: string[]
   featured?: boolean
 }
+
+const elliiInclude =
+  'Plataforma digital de ensino ESL (English as a Second Language, Inglês como Segunda Língua) — Ellii está incluso, acesso completo'
 
 export const semestralPlans: SemestralPlan[] = [
   {
@@ -21,6 +25,12 @@ export const semestralPlans: SemestralPlan[] = [
     hours: 20,
     discountNote: '10% de desconto · 20h no semestre',
     featured: true,
+    includes: [
+      'Pacote de 20h — use dentro de 6 meses',
+      '6x no boleto, sem juros',
+      elliiInclude,
+      'Acompanhamento de progresso',
+    ],
   },
   {
     id: 'duplas',
@@ -30,6 +40,13 @@ export const semestralPlans: SemestralPlan[] = [
     total: 1980,
     hours: 20,
     discountNote: '10% de desconto · por aluno',
+    includes: [
+      'Pacote de 20h — use dentro de 6 meses',
+      '6x no boleto, sem juros, por aluno',
+      elliiInclude,
+      'Acompanhamento de progresso',
+      'Avaliação de nível da dupla antes de começar',
+    ],
   },
   {
     id: 'trios',
@@ -39,6 +56,13 @@ export const semestralPlans: SemestralPlan[] = [
     total: 1710,
     hours: 20,
     discountNote: '10% de desconto · por aluno',
+    includes: [
+      'Pacote de 20h — use dentro de 6 meses',
+      '6x no boleto, sem juros, por aluno',
+      elliiInclude,
+      'Acompanhamento de progresso',
+      'Avaliação de nível do trio antes de começar',
+    ],
   },
 ]
 

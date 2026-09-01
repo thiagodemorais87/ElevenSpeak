@@ -106,7 +106,7 @@ export function Resources() {
               clickEffect={!disableFx}
               disableAnimations={disableFx}
               spotlightRadius={360}
-              glowColor="61, 90, 254"
+              glowColor="107, 143, 191"
               getCardClassName={(index) => {
                 const resource = resources[index]!
                 const base =

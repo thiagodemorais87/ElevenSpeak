@@ -4,6 +4,7 @@ import { colors } from '@/config/colors';
 
 export type TextLoopShape = 'wave' | 'circle' | 'infinity' | 'arch' | 'line';
 export type TextLoopDirection = 'forward' | 'reverse';
+export type TextLoopFit = 'contain' | 'cover';
 
 export interface TextLoopProps {
   text?: string;
@@ -22,6 +23,7 @@ export interface TextLoopProps {
   ribbonColor?: string;
   ribbonWidth?: number;
   pauseOnHover?: boolean;
+  fit?: TextLoopFit;
   className?: string;
   style?: CSSProperties;
 }
@@ -47,8 +49,8 @@ const buildPath = (shape: TextLoopShape, curviness: number, ribbonWidth: number)
       return `M ${CX - r} ${CY} A ${r} ${r} 0 1 1 ${CX + r} ${CY} A ${r} ${r} 0 1 1 ${CX - r} ${CY} Z`;
     }
     case 'infinity': {
-      const r = 150 + c * 1.4;
-      const h = Math.min(60 + c * 0.95, room);
+      const r = Math.min(VIEW_W * 0.45, 280 + c * 1.6);
+      const h = Math.min(room * 0.95, 100 + c * 1.15);
       return [
         `M ${CX} ${CY}`,
         `C ${CX + r * 0.55} ${CY - h} ${CX + r} ${CY - h} ${CX + r} ${CY}`,
@@ -66,8 +68,14 @@ const buildPath = (shape: TextLoopShape, curviness: number, ribbonWidth: number)
       return `M -320 ${CY} L ${VIEW_W + 320} ${CY}`;
     case 'wave':
     default: {
-      const a = Math.min(c * 2.2, room * 2);
-      return `M -320 ${CY} Q -160 ${CY - a} 0 ${CY} T 320 ${CY} T 640 ${CY} T 960 ${CY} T 1280 ${CY} T ${VIEW_W + 320} ${CY}`;
+      const a = Math.min(Math.max(c * 1.35, 40), room * 0.88);
+      return [
+        `M -120 ${CY}`,
+        `C 40 ${CY - a} 160 ${CY - a} 280 ${CY}`,
+        `C 400 ${CY + a} 520 ${CY + a} 640 ${CY}`,
+        `C 760 ${CY - a} 880 ${CY - a} 1000 ${CY}`,
+        `C 1120 ${CY + a} 1240 ${CY + a} ${VIEW_W + 120} ${CY}`,
+      ].join(' ');
     }
   }
 };
@@ -89,6 +97,7 @@ export function TextLoop({
   ribbonColor = colors.blue,
   ribbonWidth = 86,
   pauseOnHover = true,
+  fit = 'contain',
   className = '',
   style = {}
 }: TextLoopProps) {
@@ -200,9 +209,9 @@ export function TextLoop({
   return (
     <div ref={rootRef} className={`relative w-full overflow-hidden ${className}`.trim()} style={style}>
       <svg
-        className="block w-full h-auto"
+        className="block h-full w-full"
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-        preserveAspectRatio="xMidYMid meet"
+        preserveAspectRatio={fit === 'cover' ? 'xMidYMid slice' : 'xMidYMid meet'}
         role="img"
         aria-label={text}
       >

@@ -3,7 +3,6 @@ import { motion } from 'motion/react'
 import { gsap } from '@/lib/gsap'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 import { HandwrittenStroke } from '@/components/HandwrittenStroke'
-import { HeroPostIt } from '@/components/HeroPostIt'
 import { HeroMiniCarousel } from '@/components/HeroMiniCarousel'
 import { HeroBrandLockup } from '@/components/HeroBrandLockup'
 import { heroPlasmaProps } from '@/data/heroPlasma'
@@ -53,7 +52,7 @@ export function Hero() {
     <section
       id="home"
       ref={sectionRef}
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-obsidian text-ivory"
+      className="relative flex min-h-[100svh] flex-col overflow-x-hidden bg-obsidian text-ivory"
     >
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
         <div className="editorial-grid absolute inset-0 opacity-[0.08]" />
@@ -71,10 +70,8 @@ export function Hero() {
         )}
       </div>
 
-      <div className="relative mx-auto flex flex-1 flex-col justify-center px-5 pb-8 pt-28 md:px-8 md:pb-12 lg:max-w-7xl lg:pt-24">
+      <div className="relative mx-auto flex flex-1 flex-col justify-center px-5 pb-28 pt-28 md:px-8 md:pb-36 lg:max-w-7xl lg:pt-24">
         <div className="relative z-10 w-full max-w-4xl">
-          <HeroPostIt />
-
           <HeroBrandLockup />
 
           <motion.div className="mt-8" {...fadeIn(reduced, 0.35)}>

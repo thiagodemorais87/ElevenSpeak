@@ -109,7 +109,7 @@ export function SpeakingClub() {
             clickEffect={!disableFx}
             disableAnimations={disableFx}
             spotlightRadius={320}
-            glowColor="232, 137, 58"
+            glowColor="230, 160, 106"
             getCardClassName={() =>
               'flex gap-4 border-ivory/15 bg-ivory/[0.03] p-5 transition hover:border-orange/35'
             }

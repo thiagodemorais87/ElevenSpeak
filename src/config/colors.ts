@@ -6,8 +6,8 @@ export const colors = {
   magenta: '#FF1493',
   yellow: '#E8C96A',
   pinkSoft: '#FF00FF',
-  blue: '#3D5AFE',
-  orange: '#E8893A',
+  blue: '#6B8FBF',
+  orange: '#E6A06A',
   lavender: '#E6E6FA',
 } as const
 
@@ -15,7 +15,7 @@ export type Colors = typeof colors
 
 /** RGB tuple for Canvas/WebGL (0–255). */
 export const colorRgb = {
-  orange: [232, 137, 58] as const,
-  blue: [61, 90, 254] as const,
+  orange: [230, 160, 106] as const,
+  blue: [107, 143, 191] as const,
   obsidian: [16, 16, 16] as const,
 } as const
